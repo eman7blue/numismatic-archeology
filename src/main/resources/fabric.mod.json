@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "numismaticarcheology",
+  "id": "numis_arch",
   "version": "${version}",
 
   "name": "Numismatic Archeology",
@@ -14,22 +14,22 @@
   },
 
   "license": "",
-  "icon": "assets/numismaticarcheology/icon.png",
+  "icon": "assets/numis_arch/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "io.github.eman7blue.numismaticarcheology.NumismaticArcheology"
+      "io.github.eman7blue.numis_arch.NumismaticArcheology"
     ]
   },
   "mixins": [
-    "numismaticarcheology.mixins.json"
+    "numis_arch.mixins.json"
   ],
 
   "depends": {
     "fabricloader": ">=0.14.14",
     "fabric-api": "*",
-    "minecraft": "~23w07a",
+    "minecraft": ">=1.19.3",
     "java": ">=17"
   },
   "suggests": {
