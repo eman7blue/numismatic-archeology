@@ -2,4 +2,6 @@
 
 ## Info
 
-Still a WIP. Basically adding some collectable coins to the sussy sand loot tables for flavor.
+Still a WIP. 
+
+Numismatic Archeology is a mod that adds (so far) eight collectable coins that can be found throughout the world, including one in a new generated desert feature. 

@@ -1,3 +1,16 @@
 {
-  "item.numis_arch.turtle_coin": "Turtle Coin"
+  "advancements.numis_arch.collect_coins.description": "Collect all the coins",
+  "advancements.numis_arch.collect_coins.title": "Coin Collector",
+  "advancements.numis_arch.numismatic_archeology.description": "Find your first coin",
+  "advancements.numis_arch.numismatic_archeology.title": "Numismatic Archeology",
+  "block.numis_arch.coin_collector_trophy": "Coin Collector Trophy",
+  "item.numis_arch.animal_coin": "Animal Coin",
+  "item.numis_arch.bee_coin": "Bee Coin",
+  "item.numis_arch.ender_coin": "Ender Coin",
+  "item.numis_arch.parrot_coin": "Parrot Coin",
+  "item.numis_arch.piglin_coin": "Piglin Coin",
+  "item.numis_arch.sniffer_coin": "Sniffer Coin",
+  "item.numis_arch.turtle_coin": "Turtle Coin",
+  "item.numis_arch.villager_coin": "Villager Coin",
+  "itemGroup.numis_arch.numismaticArcheology": "Numismatic Archeology"
 }

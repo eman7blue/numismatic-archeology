@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "side": "numis_arch:block/coin_collector_trophy",
+    "front": "numis_arch:block/coin_collector_trophy_front",
+    "top": "numis_arch:block/coin_collector_trophy"
+  }
+}

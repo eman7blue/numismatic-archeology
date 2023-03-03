@@ -1,0 +1,128 @@
+{
+  "criteria": {
+    "animal_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:animal_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bee_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:bee_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "ender_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:ender_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "parrot_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:parrot_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "piglin_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:piglin_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "sniffer_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:sniffer_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "turtle_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:turtle_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "villager_coin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "numis_arch:villager_coin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "minecraft:textures/block/suspicious_sand_0.png",
+    "description": {
+      "translate": "advancements.numis_arch.numismatic_archeology.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "numis_arch:bee_coin"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.numis_arch.numismatic_archeology.title"
+    }
+  },
+  "requirements": [
+    [
+      "animal_coin",
+      "bee_coin",
+      "ender_coin",
+      "parrot_coin",
+      "piglin_coin",
+      "sniffer_coin",
+      "turtle_coin",
+      "villager_coin"
+    ]
+  ]
+}
