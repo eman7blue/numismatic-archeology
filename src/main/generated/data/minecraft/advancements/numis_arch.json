@@ -140,6 +140,9 @@
     ]
   ],
   "rewards": {
-    "experience": 500
+    "experience": 500,
+    "recipes": [
+      "numis_arch:coin_collector_trophy"
+    ]
   }
 }

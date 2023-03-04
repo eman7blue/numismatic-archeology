@@ -48,7 +48,7 @@ public class Advancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .rewards(AdvancementRewards.Builder.experience(500))
+                .rewards(AdvancementRewards.Builder.experience(500).addRecipe(new Identifier("numis_arch:coin_collector_trophy")))
                 .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(CoinItems.ANIMAL_COIN))
                 .criterion("bee_coin", InventoryChangedCriterion.Conditions.items(CoinItems.BEE_COIN))
                 .criterion("ender_coin", InventoryChangedCriterion.Conditions.items(CoinItems.ENDER_COIN))

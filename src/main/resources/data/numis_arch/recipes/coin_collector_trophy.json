@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ABE",
+    "RGP",
+    "STV"
+  ],
+  "key": {
+    "A": {
+      "item": "numis_arch:animal_coin"
+    },
+    "B": {
+      "item": "numis_arch:bee_coin"
+    },
+    "E": {
+      "item": "numis_arch:ender_coin"
+    },
+    "R": {
+      "item": "numis_arch:parrot_coin"
+    },
+    "G": {
+      "item": "minecraft:gold_block"
+    },
+    "P": {
+      "item": "numis_arch:piglin_coin"
+    },
+    "S": {
+      "item": "numis_arch:sniffer_coin"
+    },
+    "T": {
+      "item": "numis_arch:turtle_coin"
+    },
+    "V": {
+      "item": "numis_arch:villager_coin"
+    }
+  },
+  "result": {
+    "item": "numis_arch:coin_collector_trophy"
+  }
+}
