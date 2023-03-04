@@ -1,6 +1,6 @@
 ![Numismatic Archeology logo stylized in Minecraft font with coins below][logo]
 
-Numismatic Archeology is a mod that adds eight collectable coins that can be found throughout the world, including one in a new generated desert feature, called a buried hoard.
+Numismatic Archeology is a small collect-a-thon mod that adds eight collectable coins that can be found throughout the world, including one in a new generated desert feature, called a buried hoard.
 
 ## The Coins
 
@@ -40,7 +40,7 @@ Still a WIP, the plan is to make every coin only available through the archeolog
 Also, I am no artist, sorry if the textures aren't great.
 > "the end coin looks nice" - hatman321
 
-[logo]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/numis_arch_logo_modified.png "Numismatic Archeology"
-[trophy_recipe]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/trophy_recipe.png "Now let's see Paul Allen's Coin Collecting Trophy"
-[buried_hoard_1]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/buried_hoard_1.gif "Wow a diamond!"
-[buried_hoard_2]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/buried_hoard_2.gif "That's it? An emerald and some gold? Man, what a gyp."
+[logo]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/numis_arch_logo_modified.png "Numismatic Archeology"
+[trophy_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/trophy_recipe.png "Now let's see Paul Allen's Coin Collecting Trophy"
+[buried_hoard_1]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/buried_hoard_1.gif "Wow a diamond!"
+[buried_hoard_2]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/buried_hoard_2.gif "That's it? An emerald and some gold? Man, what a gyp."
