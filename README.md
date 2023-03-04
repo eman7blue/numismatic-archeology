@@ -25,6 +25,6 @@ The buried hoard feature spawns in deserts. It's disguised as a normal dead bush
 Still a WIP, the plan is to make every coin only available through the archeology mechanic. Nearly all content is locked behind the 1.20 feature flag, except for buried hoards, which still generate without the suspicious sand.
 
 
-[logo]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/numis_arch_logo_modifed.png "Numismatic Archeology logo stylized in Minecraft font with coins below"
+[logo]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/numis_arch_logo_modified.png "Numismatic Archeology logo stylized in Minecraft font with coins below"
 [buried_hoard_1]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/buried_hoard_1.gif "Minecraft player uses a brush on suspicious sand, finding a diamond"
 [buried_hoard_2]: https://github.com/eman7blue/numismatic-archeology/blob/1.19/assets/buried_hoard_2.gif "Minecraft player digs sand and finds a barrel with treasure inside"
