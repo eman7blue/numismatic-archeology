@@ -21,11 +21,17 @@
     "main": [
       "io.github.eman7blue.numis_arch.NumismaticArcheology"
     ],
+    "client": [
+      {
+        "value": "io.github.eman7blue.numis_arch.client.NumismaticArcheologyClient"
+      }
+    ],
     "fabric-datagen": [
       "io.github.eman7blue.numis_arch.datagen.DataGeneration"
     ]
   },
   "mixins": [
+    "numis_arch.mixins.json"
   ],
 
   "depends": {

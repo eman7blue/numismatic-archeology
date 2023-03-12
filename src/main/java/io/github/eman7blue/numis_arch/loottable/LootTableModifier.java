@@ -1,6 +1,6 @@
 package io.github.eman7blue.numis_arch.loottable;
 
-import io.github.eman7blue.numis_arch.item.CoinItems;
+import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import net.fabricmc.fabric.api.loot.v2.LootTableEvents;
 import net.minecraft.item.Item;
 import net.minecraft.loot.LootTable;
@@ -17,18 +17,15 @@ public class LootTableModifier {
     public static void init() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (OneTwentyLootTables.DESERT_PYRAMID_ARCHAEOLOGY.equals(id))
-                addCoinToExistingLootTable(CoinItems.TURTLE_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.TURTLE_COIN, tableBuilder);
             if (OneTwentyLootTables.DESERT_WELL_ARCHAEOLOGY.equals(id))
-                addCoinToExistingLootTable(CoinItems.SNIFFER_COIN, tableBuilder);
-            if (LootTables.SHIPWRECK_MAP_CHEST.equals(id))
-                addCoinToExistingLootTable(CoinItems.ANIMAL_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.SNIFFER_COIN, tableBuilder);
             if (LootTables.END_CITY_TREASURE_CHEST.equals(id))
-                addCoinToExistingLootTable(CoinItems.ENDER_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.ENDER_COIN, tableBuilder);
             if (LootTables.JUNGLE_TEMPLE_CHEST.equals(id))
-                addCoinToExistingLootTable(CoinItems.PARROT_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.PARROT_COIN, tableBuilder);
             if (LootTables.BASTION_TREASURE_CHEST.equals(id))
-                addCoinToExistingLootTable(CoinItems.PIGLIN_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.PIGLIN_COIN, tableBuilder);
         }));
     }
-
 }

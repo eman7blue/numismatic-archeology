@@ -18,7 +18,7 @@ public class NumisArchFeatures {
     public static void init(){
         Registry.register(Registries.FEATURE, BURIED_HOARD_FEATURE_ID, BURIED_HOARD_FEATURE);
         BiomeModifications.addFeature(
-                BiomeSelectors.includeByKey(BiomeKeys.DESERT),
+                BiomeSelectors.includeByKey(BiomeKeys.DESERT, BiomeKeys.BADLANDS),
                 GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(RegistryKeys.PLACED_FEATURE, BURIED_HOARD_FEATURE_ID)
         );

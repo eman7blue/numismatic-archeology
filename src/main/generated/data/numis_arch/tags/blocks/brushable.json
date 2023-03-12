@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:suspicious_sand",
+    "numis_arch:suspicious_red_sand",
+    "numis_arch:suspicious_gravel",
+    "numis_arch:suspicious_soul_sand",
+    "numis_arch:suspicious_end_stone"
+  ]
+}

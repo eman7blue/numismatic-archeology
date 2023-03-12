@@ -1,39 +1,74 @@
 package io.github.eman7blue.numis_arch.block;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalFacingBlock;
+import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.AutomaticItemPlacementContext;
+import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.item.ItemUsageContext;
 import net.minecraft.state.StateManager;
+import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
+import net.minecraft.world.WorldAccess;
 
-public class CoinCollectorTrophyBlock extends HorizontalFacingBlock {
-
+public class CoinCollectorTrophyBlock extends HorizontalFacingBlock implements Waterloggable{
+    public static final BooleanProperty WATERLOGGED;
     public static final DirectionProperty FACING;
+
+    protected static final VoxelShape OUTLINE_SHAPE = VoxelShapes.union(
+            Block.createCuboidShape(3.0, 0.0, 3.0, 13.0, 1.0, 13.0),
+            Block.createCuboidShape(7.0, 1.0, 7.0, 9.0, 3.0, 9.0),
+            Block.createCuboidShape(2.0, 3.0, 2.0, 14.0, 5.0, 14.0),
+            Block.createCuboidShape(1.0, 4.0, 1.0, 15.0, 16.0, 2.0),
+            Block.createCuboidShape(1.0, 4.0, 2.0, 2.0, 16.0, 14.0),
+            Block.createCuboidShape(1.0, 4.0, 14.0, 15.0, 16.0, 15.0),
+            Block.createCuboidShape(14.0, 4.0, 2.0, 15.0, 16.0, 14.0));
+
     public CoinCollectorTrophyBlock(Settings settings) {
         super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext context) {
         PlayerEntity player = context.getPlayer();
         Direction playerFacing = player == null ? Direction.NORTH : player.getHorizontalFacing();
-        return this.getDefaultState().with(FACING, playerFacing.getOpposite());
+        return this.getDefaultState()
+                .with(FACING, playerFacing.getOpposite())
+                .with(WATERLOGGED, context.getWorld().getFluidState(context.getBlockPos()).getFluid() == Fluids.WATER);
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(Properties.HORIZONTAL_FACING);
+        builder.add(Properties.HORIZONTAL_FACING, WATERLOGGED);
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
+        return OUTLINE_SHAPE;
+    }
+
+    @Override
+    public FluidState getFluidState(BlockState state) {
+        return state.get(WATERLOGGED) ? Fluids.WATER.getStill(false) : super.getFluidState(state);
+    }
+
+    @Override
+    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState,
+                                                WorldAccess world, BlockPos pos, BlockPos neighborPos) {
+        if (state.get(WATERLOGGED))
+            world.scheduleFluidTick(pos, Fluids.WATER, Fluids.WATER.getTickRate(world));
+        return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
     static {
+        WATERLOGGED = Properties.WATERLOGGED;
         FACING = HorizontalFacingBlock.FACING;
     }
 
