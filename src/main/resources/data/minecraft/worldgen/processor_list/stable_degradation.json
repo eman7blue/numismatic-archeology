@@ -14,10 +14,10 @@
             "predicate_type": "minecraft:always_true"
           },
           "output_state": {
-            "Name": "numis_arch:suspicious_soul_sand",
-            "Properties": {
-              "LootTable": "numis_arch:archeology/buried_hoard_desert"
-            }
+            "Name": "numis_arch:suspicious_soul_sand"
+          },
+          "output_nbt": {
+            "loot_table": "numis_arch:archeology/buried_hoard_badlands"
           }
         }
       ]
