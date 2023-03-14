@@ -51,7 +51,7 @@ The piglin coin can only be found in the center of housing bastions.
 
 
 ***
-Still a WIP, the plan is to make every coin only available through the archeology mechanic. Nearly all content is locked behind the 1.20 feature flag, except for buried hoards, which still generate without the suspicious sand.
+Still a WIP, the plan is to make every coin only available through the archeology mechanic. Nearly all content is locked behind the 1.20 experimental datapack, which is highly recommended to be on for a proper experience.
 
 Thanks to SquidCat for the suspicious block textures <3.
 > "the end coin looks nice" - hatman321
