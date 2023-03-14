@@ -24,8 +24,6 @@ public class LootTableModifier {
                 addCoinToExistingLootTable(NumisArchItems.ENDER_COIN, tableBuilder);
             if (LootTables.JUNGLE_TEMPLE_CHEST.equals(id))
                 addCoinToExistingLootTable(NumisArchItems.PARROT_COIN, tableBuilder);
-            if (LootTables.BASTION_TREASURE_CHEST.equals(id))
-                addCoinToExistingLootTable(NumisArchItems.PIGLIN_COIN, tableBuilder);
         }));
     }
 }
