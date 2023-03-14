@@ -3,6 +3,7 @@ package io.github.eman7blue.numis_arch;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import io.github.eman7blue.numis_arch.loottable.LootTableModifier;
+import io.github.eman7blue.numis_arch.structure.NumisArchStructure;
 import io.github.eman7blue.numis_arch.village.TradeOffersModifier;
 import io.github.eman7blue.numis_arch.worldgen.feature.NumisArchFeatures;
 import net.fabricmc.api.ModInitializer;
@@ -20,6 +21,7 @@ public class NumismaticArcheology implements ModInitializer {
 		NumisArchFeatures.init();
 		TradeOffersModifier.init();
 		NumisArchBlocks.init();
+		NumisArchStructure.init();
 		LOGGER.info("Maj says \"COINR!\"");
 
 	}

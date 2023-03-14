@@ -81,6 +81,36 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                             .with(ItemEntry.builder(Items.STICK).weight(3))
                             .with(ItemEntry.builder(NumisArchItems.ANIMAL_COIN).weight(5))
                     ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BASTION_STABLE_ARCHEOLOGY, LootTable.builder()
+                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                            .with(ItemEntry.builder(Items.GOLD_INGOT))
+                            .with(ItemEntry.builder(Items.GOLDEN_AXE).apply(EnchantRandomlyLootFunction.builder()))
+                            .with(ItemEntry.builder(Items.GOLDEN_SHOVEL).apply(EnchantRandomlyLootFunction.builder()))
+                            .with(ItemEntry.builder(Items.GOLDEN_HOE).apply(EnchantRandomlyLootFunction.builder()))
+                            .with(ItemEntry.builder(Items.GOLD_BLOCK))
+                            .with(ItemEntry.builder(Items.NETHER_WART).weight(3))
+                            .with(ItemEntry.builder(Items.NETHER_BRICK))
+                            .with(ItemEntry.builder(Items.CRIMSON_FUNGUS))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BASTION_HOUSING_ARCHEOLOGY, LootTable.builder()
+                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                            .with(ItemEntry.builder(Items.GOLD_INGOT).weight(3))
+                            .with(ItemEntry.builder(Items.GOLD_BLOCK))
+                            .with(ItemEntry.builder(Items.GOLD_NUGGET).weight(2))
+                            .with(ItemEntry.builder(Items.NETHER_WART).weight(2))
+                            .with(ItemEntry.builder(Items.BLAZE_POWDER))
+                            .with(ItemEntry.builder(NumisArchItems.PIGLIN_COIN).weight(2))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BASTION_GARDEN_ARCHEOLOGY, LootTable.builder()
+                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                            .with(ItemEntry.builder(Items.GOLDEN_CARROT))
+                            .with(ItemEntry.builder(Items.GOLDEN_APPLE))
+                            .with(ItemEntry.builder(Items.NETHER_WART))
+                            .with(ItemEntry.builder(Items.CRIMSON_FUNGUS))
+                            .with(ItemEntry.builder(Items.WARPED_FUNGUS))
+                            .with(ItemEntry.builder(Items.NETHER_BRICK))
+                            .with(ItemEntry.builder(Items.GOLDEN_HOE).apply(EnchantRandomlyLootFunction.builder()).weight(2))
+                    ));
         }
     }
 

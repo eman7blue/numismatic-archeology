@@ -41,5 +41,6 @@
     "java": ">=17"
   },
   "suggests": {
-  }
+  },
+  "accessWidener" : "numis_arch.accesswidener"
 }

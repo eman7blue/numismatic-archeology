@@ -40,7 +40,7 @@ public abstract class SuspiciousSandBlockEntityMixin {
             return world.setBlockState(pos, Blocks.SOUL_SAND.getDefaultState(), flags);
         } else if(currentBlock.isOf(NumisArchBlocks.SUSPICIOUS_END_STONE)) {
             return world.setBlockState(pos, Blocks.END_STONE.getDefaultState(), flags);
-        }else {
+        } else {
             return false;
         }
 
