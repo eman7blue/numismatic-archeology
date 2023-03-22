@@ -1,18 +1,21 @@
 package io.github.eman7blue.numis_arch.block;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.SuspiciousSandBlock;
 import net.minecraft.block.entity.SuspiciousSandBlockEntity;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class SuspiciousEndStoneBlock extends SuspiciousSandBlock {
 
-    public SuspiciousEndStoneBlock(Settings settings) {
-        super(settings);
+
+    public SuspiciousEndStoneBlock(Block block, Settings settings, SoundEvent soundEvent, SoundEvent soundEvent2) {
+        super(block, settings, soundEvent, soundEvent2);
     }
 
     @Override

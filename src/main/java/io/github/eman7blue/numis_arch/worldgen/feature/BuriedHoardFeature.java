@@ -44,17 +44,16 @@ public class BuriedHoardFeature extends Feature<BuriedHoardFeatureConfig> {
                         world.setBlockState(pos, Blocks.BARREL.getDefaultState().with(BarrelBlock.FACING, Direction.UP), 2);
                         world.getBlockEntity(pos, BlockEntityType.BARREL).ifPresent((barrelBlockEntity ->
                                 barrelBlockEntity.setLootTable(NumisArchLootTables.BURIED_HOARD_LOOT, pos.asLong())));
-                        world.setBlockState(testPos.up(), Blocks.DEAD_BUSH.getDefaultState(), 2);
-                        if (world.getEnabledFeatures().contains(FeatureFlags.UPDATE_1_20)) {
-                            if (BlockStatePredicate.forBlock(Blocks.SAND).test(posUp)){
-                                world.setBlockState(testPos, Blocks.SUSPICIOUS_SAND.getDefaultState(), 2);
-                                world.getBlockEntity(testPos, BlockEntityType.SUSPICIOUS_SAND).ifPresent((blockEntity) ->
-                                        blockEntity.setLootTable(NumisArchLootTables.BURIED_HOARD_DESERT_ARCHEOLOGY, finalTestPos.asLong()));
-                            } else if (BlockStatePredicate.forBlock(Blocks.RED_SAND).test(posUp)) {
-                                world.setBlockState(testPos, NumisArchBlocks.SUSPICIOUS_RED_SAND.getDefaultState(), 2);
-                                world.getBlockEntity(testPos, BlockEntityType.SUSPICIOUS_SAND).ifPresent((blockEntity) ->
-                                        blockEntity.setLootTable(NumisArchLootTables.BURIED_HOARD_BADLANDS_ARCHEOLOGY, finalTestPos.asLong()));
-                            }
+                        world.setBlockState(testPos.up(), Blocks.DEAD_BUSH.getDefaultState(), 2); {
+                        if (BlockStatePredicate.forBlock(Blocks.SAND).test(posUp)){
+                            world.setBlockState(testPos, Blocks.SUSPICIOUS_SAND.getDefaultState(), 2);
+                            world.getBlockEntity(testPos, BlockEntityType.BRUSHABLE_BLOCK).ifPresent((blockEntity) ->
+                                    blockEntity.setLootTable(NumisArchLootTables.BURIED_HOARD_DESERT_ARCHEOLOGY, finalTestPos.asLong()));
+                        } else if (BlockStatePredicate.forBlock(Blocks.RED_SAND).test(posUp)) {
+                            world.setBlockState(testPos, NumisArchBlocks.SUSPICIOUS_RED_SAND.getDefaultState(), 2);
+                            world.getBlockEntity(testPos, BlockEntityType.BRUSHABLE_BLOCK).ifPresent((blockEntity) ->
+                                    blockEntity.setLootTable(NumisArchLootTables.BURIED_HOARD_BADLANDS_ARCHEOLOGY, finalTestPos.asLong()));
+                        }
 
                         }
                         return true;

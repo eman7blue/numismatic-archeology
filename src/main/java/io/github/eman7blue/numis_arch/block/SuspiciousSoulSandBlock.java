@@ -5,6 +5,7 @@ import net.minecraft.block.entity.SuspiciousSandBlockEntity;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.random.Random;
 import net.minecraft.util.shape.VoxelShape;
@@ -14,8 +15,9 @@ import net.minecraft.world.World;
 
 public class SuspiciousSoulSandBlock extends SuspiciousSandBlock {
 
-    public SuspiciousSoulSandBlock(Settings settings) {
-        super(settings);
+
+    public SuspiciousSoulSandBlock(Block block, Settings settings, SoundEvent soundEvent, SoundEvent soundEvent2) {
+        super(block, settings, soundEvent, soundEvent2);
     }
 
     @Override
