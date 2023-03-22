@@ -2,6 +2,7 @@ package io.github.eman7blue.numis_arch.structure;
 
 import com.google.common.collect.ImmutableList;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
+import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
 import io.github.eman7blue.numis_arch.mixin.RuleStructureProcessorAccessor;
 import io.github.eman7blue.numis_arch.mixin.StructurePoolAccessor;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
@@ -16,6 +17,7 @@ import net.minecraft.structure.processor.*;
 import net.minecraft.structure.rule.AlwaysTruePosRuleTest;
 import net.minecraft.structure.rule.AlwaysTrueRuleTest;
 import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
+import net.minecraft.structure.rule.blockentity.AppendLootRuleBlockEntityModifier;
 import net.minecraft.util.Identifier;
 
 import java.util.Optional;
@@ -31,17 +33,13 @@ public class NumisArchStructure {
         }));
         DynamicRegistrySetupCallback.EVENT.register(registryManager -> registryManager.registerEntryAdded(RegistryKeys.PROCESSOR_LIST, (rawId, id, object) -> {
             if (id.equals(new Identifier("minecraft", "housing"))) {
-                NbtCompound nbt = new NbtCompound();
-                nbt.putString("loot_table", "numis_arch:archeology/bastion_housing");
                 StructureProcessorRule rule = new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.SOUL_SAND, 0.15f),
-                        AlwaysTrueRuleTest.INSTANCE, AlwaysTruePosRuleTest.INSTANCE, NumisArchBlocks.SUSPICIOUS_SOUL_SAND.getDefaultState(), Optional.of(nbt));
+                        AlwaysTrueRuleTest.INSTANCE, AlwaysTruePosRuleTest.INSTANCE, NumisArchBlocks.SUSPICIOUS_SOUL_SAND.getDefaultState(), new AppendLootRuleBlockEntityModifier(NumisArchLootTables.BASTION_HOUSING_ARCHEOLOGY));
                 addToProcessorList(object, rule);
             }
             if (id.equals(new Identifier("minecraft", "stable_degradation"))) {
-                NbtCompound nbt = new NbtCompound();
-                nbt.putString("loot_table", "numis_arch:archeology/bastion_stable");
                 StructureProcessorRule rule = new StructureProcessorRule(new RandomBlockMatchRuleTest(Blocks.SOUL_SAND, 0.05f),
-                        AlwaysTrueRuleTest.INSTANCE, AlwaysTruePosRuleTest.INSTANCE, NumisArchBlocks.SUSPICIOUS_SOUL_SAND.getDefaultState(), Optional.of(nbt));
+                        AlwaysTrueRuleTest.INSTANCE, AlwaysTruePosRuleTest.INSTANCE, NumisArchBlocks.SUSPICIOUS_SOUL_SAND.getDefaultState(), new AppendLootRuleBlockEntityModifier(NumisArchLootTables.BASTION_STABLE_ARCHEOLOGY));
                 addToProcessorList(object, rule);
             }
         }));

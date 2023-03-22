@@ -142,8 +142,8 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         protected void configure(RegistryWrapper.WrapperLookup registries) {
             getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("numis_arch", "brushable")))
                     .add(Blocks.SUSPICIOUS_SAND)
+                    .add(Blocks.GRAVEL)
                     .add(NumisArchBlocks.SUSPICIOUS_RED_SAND)
-                    .add(NumisArchBlocks.SUSPICIOUS_GRAVEL)
                     .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND)
                     .add(NumisArchBlocks.SUSPICIOUS_END_STONE);
             getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("numis_arch", "nether_wart_plantable")))

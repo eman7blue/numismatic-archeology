@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "numis_arch:bamboo_shrine",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "separation": 8,
+    "spacing": 32,
+    "salt": 215215215215
+  }
+}
