@@ -1,0 +1,42 @@
+{
+  "name": "numis_arch:bamboo_shrine/gates",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/gates/gate_0",
+        "processors": "numis_arch:bamboo_shrine_gate",
+        "projection": "rigid"
+      },
+      "weight": 35
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/gates/gate_1",
+        "processors": "numis_arch:bamboo_shrine_gate",
+        "projection": "rigid"
+      },
+      "weight": 10
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/gates/gate_2",
+        "processors": "numis_arch:bamboo_shrine_gate",
+        "projection": "rigid"
+      },
+      "weight": 4
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/gates/gate_3",
+        "processors": "numis_arch:bamboo_shrine_gate",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

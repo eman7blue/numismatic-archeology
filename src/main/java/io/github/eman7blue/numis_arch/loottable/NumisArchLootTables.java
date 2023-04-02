@@ -10,6 +10,7 @@ public class NumisArchLootTables {
     public static final Identifier BASTION_HOUSING_ARCHEOLOGY;
     public static final Identifier BASTION_GARDEN_ARCHEOLOGY;
 
+
     static {
         BURIED_HOARD_LOOT = new Identifier("numis_arch", "chests/buried_hoard");
         BURIED_HOARD_DESERT_ARCHEOLOGY = new Identifier("numis_arch", "archeology/buried_hoard_desert");

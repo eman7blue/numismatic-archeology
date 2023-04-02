@@ -1,10 +1,20 @@
 {
+  "name": "numis_arch:bamboo_shrine/chambers",
   "elements": [
     {
       "element": {
         "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/chambers/chamber_0",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
         "location": "numis_arch:bamboo_shrine/chambers/chamber_1",
-        "processors": "minecraft:housing",
+        "processors": "numis_arch:bamboo_shrine_underground",
         "projection": "rigid"
       },
       "weight": 1
@@ -13,16 +23,7 @@
       "element": {
         "element_type": "minecraft:single_pool_element",
         "location": "numis_arch:bamboo_shrine/chambers/chamber_2",
-        "processors": "minecraft:housing",
-        "projection": "rigid"
-      },
-      "weight": 1
-    },
-    {
-      "element": {
-        "element_type": "minecraft:single_pool_element",
-        "location": "numis_arch:bamboo_shrine/chambers/chamber_3",
-        "processors": "minecraft:housing",
+        "processors": "numis_arch:bamboo_shrine_underground",
         "projection": "rigid"
       },
       "weight": 1

@@ -1,0 +1,116 @@
+{
+  "name": "numis_arch:bamboo_shrine/hallways",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_0",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_1",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_2",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_3",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_4",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/end_5",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 1
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/hallway_0",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/hallway_1",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/hallway_2",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/hallway_3",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/hallway_4",
+        "processors": "numis_arch:bamboo_shrine_underground",
+        "projection": "rigid"
+      },
+      "weight": 2
+    },
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:bamboo_shrine/hallways/room_0",
+        "processors": {
+          "processors": []
+        },
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

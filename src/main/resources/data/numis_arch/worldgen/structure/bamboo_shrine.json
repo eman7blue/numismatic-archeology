@@ -3,7 +3,7 @@
   "biomes": "minecraft:bamboo_jungle",
   "step": "surface_structures",
   "spawn_overrides": {},
-  "terrain_adaptation": "beard_box",
+  "terrain_adaptation": "beard_thin",
   "start_pool": "numis_arch:bamboo_shrine/gates",
   "size": 4,
   "start_height": {
