@@ -1,6 +1,7 @@
 package io.github.eman7blue.numis_arch.structure;
 
 import com.google.common.collect.ImmutableList;
+import com.mojang.datafixers.util.Pair;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
 import io.github.eman7blue.numis_arch.mixin.RuleStructureProcessorAccessor;
@@ -9,6 +10,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistrySetupCallback;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.structure.pool.StructurePool;
@@ -32,7 +34,7 @@ public class NumisArchStructure {
             }
             if (id.equals(new Identifier("minecraft", "village/desert/houses"))) {
                 ObjectArrayList<StructurePoolElement> elements = ((StructurePoolAccessor) object).getElements();
-                elements.add(StructurePoolElement.ofLegacySingle("numis_arch:village/desert/houses/desert_archeologist_1").apply(StructurePool.Projection.RIGID));
+                elements.add(StructurePoolElement.ofSingle("numis_arch:village/desert/houses/desert_archeologist_1").apply(StructurePool.Projection.RIGID));
             }
         }));
         DynamicRegistrySetupCallback.EVENT.register(registryManager -> registryManager.registerEntryAdded(RegistryKeys.PROCESSOR_LIST, (rawId, id, object) -> {

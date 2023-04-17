@@ -7,10 +7,10 @@ Numismatic Archeology is a collect-a-thon mod that adds eight collectable coins 
 There are eight coins which can be found in-game:
 * Animal Coin: Dug up in badlands buried hoards
 * Bee Coin: Dug up in desert buried hoards
-* Ender Coin: Found in end cities
-* Parrot Coin: Found in jungle temples
+* Ender Coin: Dug up in end temples
+* Parrot Coin: Dug up in bamboo shrines
 * Piglin Coin: Dug up in housing bastions
-* Sniffer Coin: Dug up desert wells
+* Sniffer Coin: Dug up in warm ocean ruins
 * Turtle Coin: Dug up in desert pyramids
 * Villager Coin: Traded for with Wandering Trader
 
@@ -28,7 +28,7 @@ The coins have to be in alphabetical order, otherwise it won't work.
 The buried hoard feature spawns in deserts and badlands. It's disguised as a normal dead bush, however with suspicious sand (or red sand) underneath it, which might contain a coin. Buried near is a hidden barrel with treasure inside!
 
 <details>
-<summary>Screenshots</summary>
+<summary>Buried Hoard in-game</summary>
 
 ![Minecraft player uses a brush on suspicious sand, finding a diamond][buried_hoard_1]
 ![Minecraft player digs sand and finds a barrel with treasure inside][buried_hoard_2]
@@ -41,7 +41,7 @@ The buried hoard feature spawns in deserts and badlands. It's disguised as a nor
 The Hoglin Stable and Housing Bastions now generate with suspicious soul sand, which generates different loot depending on where it is spawned. 
 
 <details>
-<summary>Buried Hoard in-game</summary>
+<summary>Screenshots</summary>
 The piglin coin can only be found in the center of housing bastions.
 
 ![A piglin coin beside some nether wart growing on suspicious sand in a bastion][bastion_housing]
@@ -51,7 +51,11 @@ The piglin coin can only be found in the center of housing bastions.
 
 
 ***
-Still a WIP, the plan is to make every coin only available through the archeology mechanic. Nearly all content is locked behind the 1.20 experimental datapack, which is highly recommended to be on for a proper experience.
+Still a WIP, the plan is to make every coin only available through the archeology mechanic. 
+
+Note for 1.19.4 - I don't plan on supporting 1.19.4 due to nearly all content is locked behind the 1.20 experimental 
+datapack. This mod is mainly focused on the Trails & Tales 1.20 update.
+
 
 Thanks to SquidCat for the suspicious block textures <3.
 > "the end coin looks nice" - hatman321

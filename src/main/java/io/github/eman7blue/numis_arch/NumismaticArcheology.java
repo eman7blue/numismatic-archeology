@@ -24,6 +24,5 @@ public class NumismaticArcheology implements ModInitializer {
 		NumisArchBlocks.init();
 		NumisArchStructure.init();
 		LOGGER.info("Maj says \"COINR!\"");
-
 	}
 }
