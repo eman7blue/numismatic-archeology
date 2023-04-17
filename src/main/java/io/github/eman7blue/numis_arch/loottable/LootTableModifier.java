@@ -17,12 +17,8 @@ public class LootTableModifier {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (LootTables.DESERT_PYRAMID_ARCHAEOLOGY.equals(id))
                 addCoinToExistingLootTable(NumisArchItems.TURTLE_COIN, tableBuilder);
-            if (LootTables.DESERT_WELL_ARCHAEOLOGY.equals(id))
+            if (LootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY.equals(id))
                 addCoinToExistingLootTable(NumisArchItems.SNIFFER_COIN, tableBuilder);
-            if (LootTables.END_CITY_TREASURE_CHEST.equals(id))
-                addCoinToExistingLootTable(NumisArchItems.ENDER_COIN, tableBuilder);
-            if (LootTables.JUNGLE_TEMPLE_CHEST.equals(id))
-                addCoinToExistingLootTable(NumisArchItems.PARROT_COIN, tableBuilder);
         }));
     }
 }

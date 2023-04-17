@@ -14,9 +14,10 @@ import org.slf4j.LoggerFactory;
 public class NumismaticArcheology implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("numis_arch");
 
+	public static final String MOD_ID = "numis_arch";
+
 	@Override
 	public void onInitialize() {
-		// innit mate
 		LootTableModifier.init();
 		NumisArchFeatures.init();
 		TradeOffersModifier.init();

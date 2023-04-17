@@ -8,12 +8,17 @@
   "authors": [
     "Eman7blue"
   ],
+  "contributors": [
+    "SquidCat"
+  ],
   "contact": {
-    "website": "https://github.com/eman7blue/numismatic-archeology",
-    "repo": "https://github.com/eman7blue/numismatic-archeology"
+    "homepage": "https://modrinth.com/mod/numismatic-archeology",
+    "sources": "https://github.com/eman7blue/numismatic-archeology",
+    "issues": "https://github.com/eman7blue/numismatic-archeology/issues",
+    "email": "eman7blue@gmail.com"
   },
 
-  "license": "",
+  "license": "MIT",
   "icon": "assets/numis_arch/icon.png",
 
   "environment": "*",
@@ -33,7 +38,13 @@
   "mixins": [
     "numis_arch.mixins.json"
   ],
-
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/mdSPxJbfBx"
+      }
+    }
+  },
   "depends": {
     "fabricloader": ">=0.14.18",
     "fabric-api": "*",

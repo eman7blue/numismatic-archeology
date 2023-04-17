@@ -1,0 +1,15 @@
+{
+  "name": "numis_arch:end_temple/base",
+  "elements": [
+    {
+      "element": {
+        "element_type": "minecraft:single_pool_element",
+        "location": "numis_arch:end_temple/base",
+        "processors": "numis_arch:end_temple_base",
+        "projection": "rigid"
+      },
+      "weight": 1
+    }
+  ],
+  "fallback": "minecraft:empty"
+}

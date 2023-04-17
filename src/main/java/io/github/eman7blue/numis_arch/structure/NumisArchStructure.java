@@ -25,10 +25,14 @@ import java.util.Optional;
 public class NumisArchStructure {
     public static void init() {
         DynamicRegistrySetupCallback.EVENT.register(registryManager -> registryManager.registerEntryAdded(RegistryKeys.TEMPLATE_POOL, (rawId, id, object) -> {
-            RegistryEntry<StructureProcessorList> PROCESSORS = RegistryEntry.of(new StructureProcessorList(ImmutableList.of(BlackstoneReplacementStructureProcessor.INSTANCE)));
+            RegistryEntry<StructureProcessorList> bastion_processor = RegistryEntry.of(new StructureProcessorList(ImmutableList.of(BlackstoneReplacementStructureProcessor.INSTANCE)));
             if (id.equals(new Identifier("minecraft", "bastion/units/stages/stage_1"))) {
                 ObjectArrayList<StructurePoolElement> elements = ((StructurePoolAccessor) object).getElements();
-                elements.add(StructurePoolElement.ofProcessedSingle("numis_arch:bastion/units/stages/stage_1_na", PROCESSORS).apply(StructurePool.Projection.RIGID));
+                elements.add(StructurePoolElement.ofProcessedSingle("numis_arch:bastion/units/stages/stage_1_na", bastion_processor).apply(StructurePool.Projection.RIGID));
+            }
+            if (id.equals(new Identifier("minecraft", "village/desert/houses"))) {
+                ObjectArrayList<StructurePoolElement> elements = ((StructurePoolAccessor) object).getElements();
+                elements.add(StructurePoolElement.ofLegacySingle("numis_arch:village/desert/houses/desert_archeologist_1").apply(StructurePool.Projection.RIGID));
             }
         }));
         DynamicRegistrySetupCallback.EVENT.register(registryManager -> registryManager.registerEntryAdded(RegistryKeys.PROCESSOR_LIST, (rawId, id, object) -> {

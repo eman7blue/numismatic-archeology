@@ -6,18 +6,26 @@ import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.client.BlockStateModelGenerator;
+import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
+import net.minecraft.loot.context.LootContextType;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.EnchantRandomlyLootFunction;
+import net.minecraft.loot.function.LimitCountLootFunction;
+import net.minecraft.loot.function.SetCountLootFunction;
+import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.loot.provider.number.LootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -45,19 +53,27 @@ public class DataGeneration implements DataGeneratorEntrypoint {
 
         @Override
         public void accept(BiConsumer<Identifier, LootTable.Builder> identifierBuilderBiConsumer) {
-            identifierBuilderBiConsumer.accept(NumisArchLootTables.BURIED_HOARD_LOOT, LootTable.builder()
-                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(6.0F, 12.0F))
-                        .with(ItemEntry.builder(Items.GOLD_NUGGET).weight(10))
-                        .with(ItemEntry.builder(Items.GOLD_INGOT).weight(5))
-                        .with(ItemEntry.builder(Items.DIAMOND))
-                        .with(ItemEntry.builder(Items.EMERALD).weight(3))
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.END_TEMPLE_ARCHEOLOGY, LootTable.builder()
+                    .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(12.0F, 18.0F))
+                            .with(ItemEntry.builder(Items.DIAMOND))
+                            .with(ItemEntry.builder(Items.DIAMOND_SHOVEL).apply(EnchantRandomlyLootFunction.builder()))
+                            .with(ItemEntry.builder(Items.DIAMOND_PICKAXE).apply(EnchantRandomlyLootFunction.builder()))
+                            .with(ItemEntry.builder(Items.ENDER_PEARL).weight(2))
+                            .with(ItemEntry.builder(NumisArchItems.ENDER_COIN).weight(2))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BURIED_HOARD_LOOT, LootTable.builder().type(LootContextTypes.CHEST)
+                .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(12.0F, 18.0F))
+                        .with(ItemEntry.builder(Items.GOLD_NUGGET).weight(10).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(6.0F, 15.0F))))
+                        .with(ItemEntry.builder(Items.GOLD_INGOT).weight(5).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 8.0F))))
+                        .with(ItemEntry.builder(Items.DIAMOND).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+                        .with(ItemEntry.builder(Items.EMERALD).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
                         .with(ItemEntry.builder(Items.SADDLE).weight(2))
                         .with(ItemEntry.builder(Items.CLOCK).weight(2))
-                        .with(ItemEntry.builder(Items.IRON_AXE).apply(EnchantRandomlyLootFunction.builder()))
-                        .with(ItemEntry.builder(Items.IRON_SHOVEL).apply(EnchantRandomlyLootFunction.builder()))
-                        .with(ItemEntry.builder(Items.IRON_PICKAXE).apply(EnchantRandomlyLootFunction.builder()))
-                        .with(ItemEntry.builder(Items.IRON_SWORD).apply(EnchantRandomlyLootFunction.builder()))
-                        .with(ItemEntry.builder(Items.IRON_HOE).apply(EnchantRandomlyLootFunction.builder()))
+                        .with(ItemEntry.builder(Items.IRON_AXE).apply(EnchantRandomlyLootFunction.builder()).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                        .with(ItemEntry.builder(Items.IRON_SHOVEL).apply(EnchantRandomlyLootFunction.builder()).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                        .with(ItemEntry.builder(Items.IRON_PICKAXE).apply(EnchantRandomlyLootFunction.builder()).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                        .with(ItemEntry.builder(Items.IRON_SWORD).apply(EnchantRandomlyLootFunction.builder()).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                        .with(ItemEntry.builder(Items.IRON_HOE).apply(EnchantRandomlyLootFunction.builder()).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
                 ));
             identifierBuilderBiConsumer.accept(NumisArchLootTables.BURIED_HOARD_DESERT_ARCHEOLOGY, LootTable.builder()
                 .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
@@ -110,6 +126,51 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                             .with(ItemEntry.builder(Items.WARPED_FUNGUS))
                             .with(ItemEntry.builder(Items.NETHER_BRICK))
                             .with(ItemEntry.builder(Items.GOLDEN_HOE).apply(EnchantRandomlyLootFunction.builder()).weight(2))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BAMBOO_SHRINE_CHEST, LootTable.builder().type(LootContextTypes.CHEST)
+                    .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(9.0F, 12.0F))
+                            .with(ItemEntry.builder(Items.GOLDEN_APPLE))
+                            .with(ItemEntry.builder(Items.IRON_AXE).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                            .with(ItemEntry.builder(Items.IRON_SHOVEL).apply(LimitCountLootFunction.builder(BoundedIntUnaryOperator.create(1))))
+                            .with(ItemEntry.builder(Items.ECHO_SHARD))
+                            .with(ItemEntry.builder(Items.BAMBOO).weight(8).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 8.0F))))
+                            .with(ItemEntry.builder(Items.IRON_INGOT).weight(4).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(2.0F, 6.0F))))
+                            .with(ItemEntry.builder(Items.RED_CANDLE))
+                            .with(ItemEntry.builder(Items.GREEN_CANDLE))
+                            .with(ItemEntry.builder(Items.BLUE_CANDLE))
+                            .with(ItemEntry.builder(Items.PINK_CANDLE))
+                            .with(ItemEntry.builder(Items.CANDLE))
+                            .with(ItemEntry.builder(Items.FEATHER).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BAMBOO_SHRINE_CHERRY_CHEST, LootTable.builder().type(LootContextTypes.CHEST)
+                    .pool(LootPool.builder().rolls(UniformLootNumberProvider.create(9.0F, 13.0F))
+                            .with(ItemEntry.builder(Items.GOLDEN_APPLE))
+                            .with(ItemEntry.builder(Items.ECHO_SHARD))
+                            .with(ItemEntry.builder(Items.BAMBOO).weight(7).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 8.0F))))
+                            .with(ItemEntry.builder(Items.PINK_CANDLE).weight(3))
+                            .with(ItemEntry.builder(Items.PINK_STAINED_GLASS))
+                            .with(ItemEntry.builder(Items.PINK_WOOL))
+                            .with(ItemEntry.builder(Items.PINK_DYE).weight(3).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 4.0F))))
+                            .with(ItemEntry.builder(Items.PINK_CONCRETE))
+                            .with(ItemEntry.builder(Items.PINK_PETALS))
+                            .with(ItemEntry.builder(Items.PINK_TERRACOTTA))
+                            .with(ItemEntry.builder(Items.CHERRY_SAPLING))
+                            .with(ItemEntry.builder(Items.FEATHER).weight(2).apply(SetCountLootFunction.builder(UniformLootNumberProvider.create(1.0F, 2.0F))))
+                    ));
+            identifierBuilderBiConsumer.accept(NumisArchLootTables.BAMBOO_SHRINE_ARCHEOLOGY, LootTable.builder().type(LootContextTypes.ARCHAEOLOGY)
+                    .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
+                            .with(ItemEntry.builder(Items.IRON_PICKAXE))
+                            .with(ItemEntry.builder(Items.IRON_SWORD))
+                            .with(ItemEntry.builder(Items.FLINT_AND_STEEL))
+                            .with(ItemEntry.builder(Items.PACKED_MUD))
+                            .with(ItemEntry.builder(Items.ECHO_SHARD))
+                            .with(ItemEntry.builder(Items.BAMBOO).weight(3))
+                            .with(ItemEntry.builder(Items.IRON_INGOT).weight(2))
+                            .with(ItemEntry.builder(Items.RED_CANDLE).weight(2))
+                            .with(ItemEntry.builder(Items.GREEN_CANDLE))
+                            .with(ItemEntry.builder(Items.BLUE_CANDLE))
+                            .with(ItemEntry.builder(NumisArchItems.PARROT_COIN).weight(2))
+                            .with(ItemEntry.builder(NumisArchItems.ODD_GREEN_FIGURINE))
                     ));
         }
     }

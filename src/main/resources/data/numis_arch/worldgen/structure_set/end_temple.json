@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "numis_arch:end_temple",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "separation": 8,
+    "spacing": 32,
+    "salt": 421729144
+  }
+}

@@ -35,6 +35,9 @@ public class NumisArchItems {
     public static final Item VILLAGER_COIN =
             Registry.register(Registries.ITEM, new Identifier("numis_arch", "villager_coin"),
                     new Item(new FabricItemSettings()));
+    public static final Item ODD_GREEN_FIGURINE =
+            Registry.register(Registries.ITEM, new Identifier("numis_arch", "odd_green_figurine"),
+                    new Item(new FabricItemSettings()));
     public static final Item COIN_COLLECTOR_TROPHY =
             Registry.register(Registries.ITEM, new Identifier("numis_arch", "coin_collector_trophy"),
                     new BlockItem(NumisArchBlocks.COIN_COLLECTOR_TROPHY, new FabricItemSettings()));
@@ -47,6 +50,9 @@ public class NumisArchItems {
     public static final Item SUSPICIOUS_END_STONE =
             Registry.register(Registries.ITEM, new Identifier("numis_arch", "suspicious_end_stone"),
                     new BlockItem(NumisArchBlocks.SUSPICIOUS_END_STONE, new FabricItemSettings()));
+    public static final Item NUMISMATIC_DESK =
+            Registry.register(Registries.ITEM, new Identifier("numis_arch", "numismatic_desk"),
+                    new BlockItem(NumisArchBlocks.NUMISMATIC_DESK, new FabricItemSettings()));
 
     private static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier("numis_arch", "numismatic_archeology"))
             .displayName(Text.translatable("itemGroup.numis_arch.numismaticArcheology"))
@@ -54,9 +60,6 @@ public class NumisArchItems {
             .entries((displayContext, entries) -> {
                 entries.add(Items.SUSPICIOUS_SAND);
                 entries.add(Items.SUSPICIOUS_GRAVEL);
-                entries.add(SUSPICIOUS_RED_SAND);
-                entries.add(SUSPICIOUS_SOUL_SAND);
-                entries.add(SUSPICIOUS_END_STONE);
                 entries.add(Items.BRUSH);
                 entries.add(ANIMAL_COIN);
                 entries.add(BEE_COIN);
@@ -66,6 +69,11 @@ public class NumisArchItems {
                 entries.add(SNIFFER_COIN);
                 entries.add(TURTLE_COIN);
                 entries.add(VILLAGER_COIN);
+                entries.add(ODD_GREEN_FIGURINE);
+                entries.add(SUSPICIOUS_RED_SAND);
+                entries.add(SUSPICIOUS_SOUL_SAND);
+                entries.add(SUSPICIOUS_END_STONE);
+                entries.add(NUMISMATIC_DESK);
                 entries.add(COIN_COLLECTOR_TROPHY);
             })
             .build();

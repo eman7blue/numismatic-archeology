@@ -1,5 +1,5 @@
 {
-  "parent": "minecraft:numis_arch/root",
+  "parent": "minecraft:numis_arch/keep_the_change",
   "criteria": {
     "animal_coin": {
       "conditions": {
@@ -106,7 +106,7 @@
     "frame": "challenge",
     "hidden": false,
     "icon": {
-      "item": "numis_arch:ender_coin"
+      "item": "numis_arch:coin_collector_trophy"
     },
     "show_toast": true,
     "title": {
