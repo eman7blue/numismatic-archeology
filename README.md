@@ -1,6 +1,6 @@
 ![Numismatic Archeology logo stylized in Minecraft font with coins below][logo]
 
-Numismatic Archeology is a collect-a-thon mod that adds eight collectable coins that can be found throughout the world. You can also find some more suspicious blocks generated in the world!
+Numismatic Archeology is an exploration mod that adds eight collectable coins that can be found throughout the world using the new archeology mechanics in the Trails & Tales update! You can also find some more structures generated in the world!
 
 ## The Coins
 
@@ -12,7 +12,7 @@ There are eight coins which can be found in-game:
 * Piglin Coin: Dug up in housing bastions
 * Sniffer Coin: Dug up in warm ocean ruins
 * Turtle Coin: Dug up in desert pyramids
-* Villager Coin: Traded for with Wandering Trader
+* Villager Coin: Dug up in villages
 
 Collect all eight coins to craft a trophy!
 
@@ -36,7 +36,21 @@ The buried hoard feature spawns in deserts and badlands. It's disguised as a nor
 
 
 
-## New Bastion Content
+## New Structures
+
+### Bamboo Shrine
+
+The bamboo shrine spawns in bamboo forests and is where you can find the parrot coin! Keep digging once you find it, because there might be more to to this shrine than meets the eye...
+
+### End Temple
+
+This simple structure generates in the End, and is where the end coin is found.
+
+### Village Additions
+
+The archeologist is a new addition to villages! You can trade sherds with them, or go see what is hiding in the dig site nearby (the dig site does not generate in snowy and taiga villages, but they have a loot chest to compensate).
+
+### Bastion Additions
 
 The Hoglin Stable and Housing Bastions now generate with suspicious soul sand, which generates different loot depending on where it is spawned. 
 
@@ -50,11 +64,18 @@ The piglin coin can only be found in the center of housing bastions.
 </details>
 
 
+
 ***
-Still a WIP, the plan is to make every coin only available through the archeology mechanic. 
+
+### What's Next?
+
+* More interesting archeology finds
+* Use for the Numismatic Desk
+* Better brushes
+* Something involving lightning...
 
 Note for 1.19.4 - I don't plan on supporting 1.19.4 due to nearly all content is locked behind the 1.20 experimental 
-datapack. This mod is mainly focused on the Trails & Tales 1.20 update.
+datapack. That version only exists because it's the most recent release which includes archeology. This mod is mainly focused on the Trails & Tales update.
 
 
 Thanks to SquidCat for the suspicious block textures <3.

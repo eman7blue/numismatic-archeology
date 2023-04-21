@@ -37,11 +37,7 @@
           "weight": 2
         }
       ],
-      "rolls": {
-        "type": "minecraft:uniform",
-        "max": 18.0,
-        "min": 12.0
-      }
+      "rolls": 1.0
     }
   ]
 }

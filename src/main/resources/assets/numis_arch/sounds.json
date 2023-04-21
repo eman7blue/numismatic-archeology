@@ -1,0 +1,13 @@
+{
+  "entity.villager.work_archeologist": {
+    "subtitle": "subtitles.numis_arch.entity.villager.work_archeologist",
+    "sounds": [
+      {
+        "name": "numis_arch:entity/villager/work_archeologist",
+        "volume": 0.4,
+        "pitch": 0.8
+      }
+    ]
+  }
+}
+

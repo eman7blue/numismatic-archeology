@@ -15,7 +15,7 @@ public class NumisArchFeatures {
     public static final Identifier BURIED_HOARD_FEATURE_ID = new Identifier("numis_arch", "buried_hoard");
     public static Feature<BuriedHoardFeatureConfig> BURIED_HOARD_FEATURE = new BuriedHoardFeature(BuriedHoardFeatureConfig.CODEC);
 
-    public static void init(){
+    public static void registerFeatures(){
         Registry.register(Registries.FEATURE, BURIED_HOARD_FEATURE_ID, BURIED_HOARD_FEATURE);
         BiomeModifications.addFeature(
                 BiomeSelectors.includeByKey(BiomeKeys.DESERT, BiomeKeys.BADLANDS),

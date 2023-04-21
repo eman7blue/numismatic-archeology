@@ -1,6 +1,23 @@
 {
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "numis_arch:block/ancient_activator_bottom"
-  }
+	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/orientable",
+	"textures": {
+		"front": "numis_arch:block/numismatic_desk_front",
+		"side": "numis_arch:block/numismatic_desk_side",
+		"top": "numis_arch:block/numismatic_desk_top"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#front"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#side"},
+				"up": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#top"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 180, "texture": "#side"}
+			}
+		}
+	]
 }

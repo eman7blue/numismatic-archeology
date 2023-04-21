@@ -1,0 +1,75 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "function": "minecraft:limit_count",
+              "limit": 1.0
+            }
+          ],
+          "name": "minecraft:brush"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:stick",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bowl",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:charcoal",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:flower_pot",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:painting"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pumpkin_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:melon_seeds"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:brick"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:bone",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:emerald",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:chain"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "numis_arch:villager_coin"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ]
+}

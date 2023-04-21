@@ -7,10 +7,10 @@
           {
             "block_entity_modifier": {
               "type": "minecraft:append_loot",
-              "loot_table": "numis_arch:archeology/buried_hoard_desert"
+              "loot_table": "numis_arch:archeology/village/village_dig_site"
             },
             "input_predicate": {
-              "block": "minecraft:sand",
+              "block": "minecraft:gravel",
               "predicate_type": "minecraft:random_block_match",
               "probability": 0.7
             },
@@ -18,7 +18,7 @@
               "predicate_type": "minecraft:always_true"
             },
             "output_state": {
-              "Name": "minecraft:suspicious_sand",
+              "Name": "minecraft:suspicious_gravel",
               "Properties": {
                 "dusted": "0"
               }
@@ -26,7 +26,7 @@
           }
         ]
       },
-      "limit": 7,
+      "limit": 6,
       "processor_type": "minecraft:capped"
     }
   ]

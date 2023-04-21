@@ -10,10 +10,10 @@ import net.minecraft.loot.entry.ItemEntry;
 public class LootTableModifier {
 
     private static void addCoinToExistingLootTable(Item coin, LootTable.Builder tableBuilder) {
-        tableBuilder.modifyPools((poolBuilder) -> poolBuilder.with(ItemEntry.builder((coin))));
+        tableBuilder.modifyPools((poolBuilder) -> poolBuilder.with(ItemEntry.builder(coin).weight(2)));
     }
 
-    public static void init() {
+    public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (LootTables.DESERT_PYRAMID_ARCHAEOLOGY.equals(id))
                 addCoinToExistingLootTable(NumisArchItems.TURTLE_COIN, tableBuilder);
