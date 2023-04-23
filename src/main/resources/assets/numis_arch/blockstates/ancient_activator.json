@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "numis_arch:block/ancient_activator"
+    }
+  }
+}

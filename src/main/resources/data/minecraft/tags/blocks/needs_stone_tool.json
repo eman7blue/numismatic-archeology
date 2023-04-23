@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "numis_arch:coin_collector_trophy"
+    "numis_arch:coin_collector_trophy",
+    "numis_arch:thunderstone_block"
   ]
 }

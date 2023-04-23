@@ -6,11 +6,13 @@
   "advancements.numis_arch.numismatic_archeology.description": "What treasures lay hidden in the world?",
   "advancements.numis_arch.numismatic_archeology.title": "Numismatic Archeology",
 
+  "block.numis_arch.ancient_activator": "Ancient Activator",
   "block.numis_arch.coin_collector_trophy": "Coin Collector Trophy",
   "block.numis_arch.numismatic_desk": "Numismatic Desk",
   "block.numis_arch.suspicious_end_stone": "Suspicious End Stone",
   "block.numis_arch.suspicious_red_sand": "Suspicious Red Sand",
   "block.numis_arch.suspicious_soul_sand": "Suspicious Soul Sand",
+  "block.numis_arch.thunderstone_block": "Thunderstone",
 
   "entity.minecraft.villager.archeologist":  "Archeologist",
 
@@ -21,6 +23,7 @@
   "item.numis_arch.parrot_coin": "Parrot Coin",
   "item.numis_arch.piglin_coin": "Piglin Coin",
   "item.numis_arch.sniffer_coin": "Sniffer Coin",
+  "item.numis_arch.thunderstone": "Thunderstone",
   "item.numis_arch.turtle_coin": "Turtle Coin",
   "item.numis_arch.villager_coin": "Villager Coin",
 

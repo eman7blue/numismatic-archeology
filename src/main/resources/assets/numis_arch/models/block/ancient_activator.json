@@ -1,0 +1,8 @@
+{
+	"parent": "minecraft:block/cube_bottom_top",
+	"textures": {
+		"bottom": "numis_arch:block/ancient_activator_bottom",
+		"side": "numis_arch:block/ancient_activator_side",
+		"top": "numis_arch:block/ancient_activator_top"
+	}
+}

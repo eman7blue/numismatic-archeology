@@ -2,6 +2,7 @@ package io.github.eman7blue.numis_arch;
 
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItemGroup;
+import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import io.github.eman7blue.numis_arch.loottable.LootTableModifier;
 import io.github.eman7blue.numis_arch.structure.NumisArchStructure;
 import io.github.eman7blue.numis_arch.structure.NumisArchStructureProcessorModifier;
@@ -24,9 +25,10 @@ public class NumismaticArcheology implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LootTableModifier.modifyLootTables();
-		NumisArchFeatures.registerFeatures();
 		NumisArchBlocks.registerBlocks();
+		NumisArchItems.registerItems();
 		NumisArchItemGroup.registerItemGroup();
+		NumisArchFeatures.registerFeatures();
 		ServerLifecycleEvents.SERVER_STARTING.register(NumisArchStructure::addToStructurePools);
 		NumisArchStructureProcessorModifier.modifyProcessors();
 		NumisArchPointOfInterestType.registerPOI();
