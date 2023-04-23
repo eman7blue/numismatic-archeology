@@ -1,0 +1,60 @@
+{
+  "parent": "minecraft:numis_arch/root",
+  "criteria": {
+    "break_suspicious_end_stone": {
+      "conditions": {
+        "block": "numis_arch:suspicious_end_stone"
+      },
+      "trigger": "numis_arch:archeology_block_destroyed"
+    },
+    "break_suspicious_gravel": {
+      "conditions": {
+        "block": "minecraft:suspicious_gravel"
+      },
+      "trigger": "numis_arch:archeology_block_destroyed"
+    },
+    "break_suspicious_red_sand": {
+      "conditions": {
+        "block": "numis_arch:suspicious_red_sand"
+      },
+      "trigger": "numis_arch:archeology_block_destroyed"
+    },
+    "break_suspicious_sand": {
+      "conditions": {
+        "block": "minecraft:suspicious_sand"
+      },
+      "trigger": "numis_arch:archeology_block_destroyed"
+    },
+    "break_suspicious_soul_sand": {
+      "conditions": {
+        "block": "numis_arch:suspicious_soul_sand"
+      },
+      "trigger": "numis_arch:archeology_block_destroyed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.numis_arch.destroy_brushable_block.description"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "minecraft:iron_pickaxe",
+      "nbt": "{Damage:0}"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.numis_arch.destroy_brushable_block.title"
+    }
+  },
+  "requirements": [
+    [
+      "break_suspicious_sand",
+      "break_suspicious_gravel",
+      "break_suspicious_red_sand",
+      "break_suspicious_soul_sand",
+      "break_suspicious_end_stone"
+    ]
+  ]
+}
