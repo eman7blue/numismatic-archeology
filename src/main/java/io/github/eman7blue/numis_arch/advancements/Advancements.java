@@ -1,11 +1,13 @@
 package io.github.eman7blue.numis_arch.advancements;
 
 import io.github.eman7blue.numis_arch.NumismaticArcheology;
+import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.AdvancementFrame;
 import net.minecraft.advancement.AdvancementRewards;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -17,6 +19,7 @@ public class Advancements implements Consumer<Consumer<Advancement>>{
     @Override
     public void accept(Consumer<Advancement> consumer) {
         String [][] coinRequirements = {{"animal_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
+        String [][] destroyArcheologyRequirements = {{"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand", "break_suspicious_soul_sand", "break_suspicious_end_stone"}};
         Advancement rootAdvancement = Advancement.Builder.create()
                 .display(
                         NumisArchItems.BEE_COIN,
@@ -74,6 +77,24 @@ public class Advancements implements Consumer<Consumer<Advancement>>{
                 .criterion("villager_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.VILLAGER_COIN))
                 .build(consumer, NumismaticArcheology.MOD_ID + "/collect_coins");
 
+        Advancement thatWasNinetyPrecentGravity = Advancement.Builder.create().parent(rootAdvancement)
+                .display(
+                        Items.IRON_PICKAXE,
+                        Text.translatable("advancements.numis_arch.destroy_brushable_block.title"),
+                        Text.translatable("advancements.numis_arch.destroy_brushable_block.description"),
+                        null,
+                        AdvancementFrame.TASK,
+                        true,
+                        true,
+                        false
+                )
+                .criterion("break_suspicious_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_SAND, null))
+                .criterion("break_suspicious_gravel", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_GRAVEL, null))
+                .criterion("break_suspicious_red_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_RED_SAND, null))
+                .criterion("break_suspicious_soul_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_SOUL_SAND, null))
+                .criterion("break_suspicious_end_stone", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_END_STONE, null))
+                .requirements(destroyArcheologyRequirements)
+                .build(consumer, NumismaticArcheology.MOD_ID + "/destroy_brushable_block");
 
     }
 

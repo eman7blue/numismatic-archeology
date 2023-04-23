@@ -1,6 +1,8 @@
 {
   "advancements.numis_arch.collect_coins.description": "Collect all the coins",
   "advancements.numis_arch.collect_coins.title": "Coin Collector",
+  "advancements.numis_arch.destroy_brushable_block.description": "Accidentally break a suspicious block, destroying the loot inside",
+  "advancements.numis_arch.destroy_brushable_block.title": "That was 90% gravity",
   "advancements.numis_arch.keep_the_change.description": "Find your first coin",
   "advancements.numis_arch.keep_the_change.title": "Keep the Change",
   "advancements.numis_arch.numismatic_archeology.description": "What treasures lay hidden in the world?",

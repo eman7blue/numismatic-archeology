@@ -5,6 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BlockEntityTypeMixin",
+    "BlockMixin",
+    "BrushableBlockEntityAccessor",
     "NetherWartBlockMixin",
     "RuleStructureProcessorAccessor",
     "StructurePoolAccessor"
