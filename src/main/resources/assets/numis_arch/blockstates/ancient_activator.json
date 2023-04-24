@@ -1,6 +1,9 @@
 {
   "variants": {
-    "": {
+    "struck_by_lightning=false": {
+      "model": "numis_arch:block/ancient_activator"
+    },
+    "struck_by_lightning=true": {
       "model": "numis_arch:block/ancient_activator"
     }
   }

@@ -14,7 +14,7 @@ import net.minecraft.structure.rule.RandomBlockMatchRuleTest;
 import net.minecraft.structure.rule.blockentity.AppendLootRuleBlockEntityModifier;
 import net.minecraft.util.Identifier;
 
-public class NumisArchStructureProcessorModifier {
+public class StructureProcessorModifier {
 
     public static void modifyProcessors() {
         DynamicRegistrySetupCallback.EVENT.register(registryManager -> registryManager.registerEntryAdded(RegistryKeys.PROCESSOR_LIST, (rawId, id, object) -> {

@@ -16,8 +16,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Block.class)
-public class BlockMixin {
-
+public abstract class BlockMixin {
     @Inject(at = @At("HEAD"), method = "afterBreak")
     public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
         if(!world.isClient && blockEntity instanceof BrushableBlockEntity brushableBlockEntity) {

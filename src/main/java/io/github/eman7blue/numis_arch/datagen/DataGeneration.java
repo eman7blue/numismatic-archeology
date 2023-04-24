@@ -6,18 +6,14 @@ import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.client.BlockStateModelGenerator;
-import net.minecraft.data.client.ItemModelGenerator;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
-import net.minecraft.loot.context.LootContextType;
 import net.minecraft.loot.context.LootContextTypes;
 import net.minecraft.loot.entry.ItemEntry;
 import net.minecraft.loot.function.EnchantRandomlyLootFunction;
@@ -25,7 +21,6 @@ import net.minecraft.loot.function.LimitCountLootFunction;
 import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
-import net.minecraft.loot.provider.number.LootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
@@ -41,7 +36,7 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
         pack.addProvider(NumisArchItemTagGenerator::new);
         pack.addProvider(NumisArchBlockTagGenerator::new);
-        pack.addProvider(AdvancementsProvider::new);
+        pack.addProvider(NumisArchAdvancementsProvider::new);
         pack.addProvider(NumisArchLootTableGenerator::new);
     }
 
@@ -226,6 +221,10 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                     .add(NumisArchItems.SNIFFER_COIN)
                     .add(NumisArchItems.TURTLE_COIN)
                     .add(NumisArchItems.VILLAGER_COIN);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("numis_arch", "can_be_lightning_activated")))
+                    .add(NumisArchItems.ODD_GREEN_FIGURINE)
+                    .add(Items.STONE)
+                    .add(NumisArchItems.THUNDERSTONE);
         }
     }
 
