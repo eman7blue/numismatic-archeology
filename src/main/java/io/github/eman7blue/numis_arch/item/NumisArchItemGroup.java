@@ -19,7 +19,7 @@ public class NumisArchItemGroup {
     }
 
     static {
-        ITEM_GROUP = FabricItemGroup.builder().displayName(Text.translatable("itemGroup.numis_arch.numismaticArcheology")).icon(() -> new ItemStack(NumisArchItems.BEE_COIN))
+        ITEM_GROUP = FabricItemGroup.builder().displayName(Text.translatable("itemGroup.numis_arch.numismaticArcheology")).icon(() -> new ItemStack(NumisArchItems.PIGLIN_COIN))
                 .entries((displayContext, entries) -> {
                     entries.add(Items.SUSPICIOUS_SAND);
                     entries.add(Items.SUSPICIOUS_GRAVEL);
@@ -34,6 +34,7 @@ public class NumisArchItemGroup {
                     entries.add(NumisArchItems.VILLAGER_COIN);
                     entries.add(NumisArchItems.ODD_GREEN_FIGURINE);
                     entries.add(NumisArchItems.THUNDERSTONE);
+                    entries.add(NumisArchItems.MAGNIFYING_GLASS);
                     entries.add(NumisArchItems.SUSPICIOUS_RED_SAND);
                     entries.add(NumisArchItems.SUSPICIOUS_SOUL_SAND);
                     entries.add(NumisArchItems.SUSPICIOUS_END_STONE);

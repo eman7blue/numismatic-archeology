@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_magnifying_glass": {
+    "has_glass": {
       "conditions": {
         "items": [
           {
             "items": [
-              "numis_arch:magnifying_glass"
+              "minecraft:glass"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_magnifying_glass",
+      "has_glass",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "numis_arch:numismatic_desk"
+      "numis_arch:magnifying_glass"
     ]
   }
 }

@@ -9,6 +9,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
 import net.minecraft.predicate.entity.EntityPredicate;
+import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
@@ -28,12 +29,12 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
         return ID;
     }
 
-    public ArcheologyBlockDestroyedCriterion.Conditions conditionsFromJson(JsonObject jsonObject, EntityPredicate.Extended extended, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
+    public ArcheologyBlockDestroyedCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate predicate, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
         Identifier blockIdentifier = new Identifier(JsonHelper.getString(jsonObject, "block"));
         Block block = Registries.BLOCK.getOrEmpty(blockIdentifier).orElseThrow(() ->
                 new JsonSyntaxException("Unknown block type '" + blockIdentifier + "'"));
         Identifier lootTableIdentifier = getLootTable(jsonObject);
-        return new ArcheologyBlockDestroyedCriterion.Conditions(extended, block, lootTableIdentifier);
+        return new ArcheologyBlockDestroyedCriterion.Conditions(predicate, block, lootTableIdentifier);
     }
 
     @Nullable
@@ -54,14 +55,14 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
         @Nullable
         private final Identifier lootTable;
 
-        public Conditions(EntityPredicate.Extended player, Block block, @Nullable Identifier lootTable) {
-            super(ArcheologyBlockDestroyedCriterion.ID, player);
+        public Conditions(LootContextPredicate predicate, Block block, @Nullable Identifier lootTable) {
+            super(ArcheologyBlockDestroyedCriterion.ID, predicate);
             this.block = block;
             this.lootTable = lootTable;
         }
 
         public static ArcheologyBlockDestroyedCriterion.Conditions create(Block block, Identifier lootTable) {
-            return new ArcheologyBlockDestroyedCriterion.Conditions(EntityPredicate.Extended.EMPTY, block, lootTable);
+            return new ArcheologyBlockDestroyedCriterion.Conditions(LootContextPredicate.EMPTY, block, lootTable);
         }
 
         public boolean test(BlockState state, Identifier loot_table) {

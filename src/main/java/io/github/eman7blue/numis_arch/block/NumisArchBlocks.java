@@ -32,37 +32,44 @@ public class NumisArchBlocks {
     }
 
     static {
-        ANCIENT_ACTIVATOR = new AncientActivatorBlock(FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.GRAY)
+        ANCIENT_ACTIVATOR = new AncientActivatorBlock(FabricBlockSettings.create()
+                .mapColor(MapColor.GRAY)
                 .strength(3.0F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.STONE));
-        COIN_COLLECTOR_TROPHY = new CoinCollectorTrophyBlock(FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.GOLD)
+        COIN_COLLECTOR_TROPHY = new CoinCollectorTrophyBlock(FabricBlockSettings.create()
+                .mapColor(MapColor.GOLD)
                 .strength(2.0F, 6.0F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.METAL)
                 .instrument(Instrument.BELL));
-        NUMISMATIC_DESK = new NumismaticDeskBlock(FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.OAK_TAN)
+        NUMISMATIC_DESK = new NumismaticDeskBlock(FabricBlockSettings.create()
+                .mapColor(MapColor.OAK_TAN)
                 .strength(2.5F)
                 .sounds(BlockSoundGroup.WOOD)
                 .burnable()
                 .instrument(Instrument.BASS));
-        SUSPICIOUS_RED_SAND = new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.ORANGE)
+        SUSPICIOUS_RED_SAND = new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.create()
+                .mapColor(MapColor.ORANGE)
                 .strength(0.25f)
                 .sounds(BlockSoundGroup.SUSPICIOUS_SAND)
                 .instrument(Instrument.SNARE),
                     SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
-        SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(Blocks.SOUL_SAND, FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.BROWN)
+        SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(Blocks.SOUL_SAND, FabricBlockSettings.create()
+                .mapColor(MapColor.BROWN)
                 .strength(0.5f)
                 .velocityMultiplier(0.4f)
                 .instrument(Instrument.COW_BELL)
                 .sounds(BlockSoundGroup.SUSPICIOUS_SAND),
                     SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
-        SUSPICIOUS_END_STONE = new SuspiciousEndStoneBlock(Blocks.END_STONE, FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.PALE_YELLOW)
+        SUSPICIOUS_END_STONE = new SuspiciousEndStoneBlock(Blocks.END_STONE, FabricBlockSettings.create()
+                .mapColor(MapColor.PALE_YELLOW)
                 .strength(3.0f, 9.0f)
                 .sounds(BlockSoundGroup.STONE)
                 .instrument(Instrument.BASEDRUM),
                     SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
-        THUNDERSTONE_BLOCK = new Block(FabricBlockSettings.of(Material.BLOCKS_LIGHT, MapColor.YELLOW)
+        THUNDERSTONE_BLOCK = new Block(FabricBlockSettings.create()
+                .mapColor(MapColor.YELLOW)
                 .strength(2.5F, 3.5F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.STONE)

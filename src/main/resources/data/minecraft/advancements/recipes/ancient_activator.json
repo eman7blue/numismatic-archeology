@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_magnifying_glass": {
+    "has_paper": {
       "conditions": {
         "items": [
           {
             "items": [
-              "numis_arch:magnifying_glass"
+              "minecraft:brush"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_magnifying_glass",
+      "has_paper",
       "has_the_recipe"
     ]
   ],

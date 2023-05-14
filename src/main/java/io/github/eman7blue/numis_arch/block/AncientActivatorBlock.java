@@ -2,14 +2,12 @@ package io.github.eman7blue.numis_arch.block;
 
 import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.block.entity.AncientActivatorBlockEntity;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockRenderType;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
@@ -65,6 +63,7 @@ public class AncientActivatorBlock extends BlockWithEntity {
                     world.playSound(null, pos, SoundEvents.ENTITY_LIGHTNING_BOLT_IMPACT, SoundCategory.BLOCKS, 0.5F, 0.5F);
                 }
             }
+            world.updateComparators(pos, NumisArchBlocks.ANCIENT_ACTIVATOR);
             return ActionResult.success(world.isClient);
         }
         return ActionResult.PASS;

@@ -22,7 +22,7 @@ public abstract class LightningEntityMixin {
             at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LightningEntity;cleanOxidation(Lnet/minecraft/world/World;Lnet/minecraft/util/math/BlockPos;)V"))
     private void spawnThunderstone(CallbackInfo info) {
         BlockPos pos = this.getAffectedBlockPos();
-        World world = ((LightningEntity)(Object)this).world;
+        World world = ((LightningEntity)(Object)this).getWorld();
         BlockState state = world.getBlockState(pos);
         if (state.isOf(Blocks.LIGHTNING_ROD)) {
             pos = pos.offset(state.get(LightningRodBlock.FACING).getOpposite());

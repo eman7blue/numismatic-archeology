@@ -2,19 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    " B ",
-    "#G#",
-    "###"
+    "M ",
+    "# "
   ],
   "key": {
     "#": {
       "tag": "minecraft:planks"
     },
-    "B": {
-      "item": "minecraft:brush"
-    },
-    "G": {
-      "item": "minecraft:glass"
+    "M": {
+      "item": "numis_arch:magnifying_glass"
     }
   },
   "result": {
