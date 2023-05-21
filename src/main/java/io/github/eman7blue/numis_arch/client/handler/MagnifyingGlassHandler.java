@@ -9,12 +9,12 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.util.Window;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
+import org.jetbrains.annotations.Nullable;
 
-public class MagnifyingBlockHandler {
+public class MagnifyingGlassHandler {
 
     public static void onRenderHud(DrawContext drawContext, float delta) {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
@@ -23,7 +23,6 @@ public class MagnifyingBlockHandler {
             BrushableBlockEntity brushableBlock = getBrushableBlockEntity();
             if (brushableBlock != null) {
                 ItemStack loot = brushableBlock.getItem();
-                NumismaticArcheology.LOGGER.info(loot.toString());
                 Window window = minecraftClient.getWindow();
                 int x = window.getScaledWidth() / 2 + 10;
                 int y = window.getScaledHeight() / 2 + 10;
@@ -32,6 +31,7 @@ public class MagnifyingBlockHandler {
         }
     }
 
+    @Nullable
     private static BrushableBlockEntity getBrushableBlockEntity() {
         MinecraftClient minecraftClient = MinecraftClient.getInstance();
         HitResult hitResult = minecraftClient.crosshairTarget;

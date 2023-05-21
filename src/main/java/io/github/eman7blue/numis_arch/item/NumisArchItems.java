@@ -13,8 +13,10 @@ public class NumisArchItems {
     public static final Item ANCIENT_ACTIVATOR;
     public static final Item ANIMAL_COIN;
     public static final Item BEE_COIN;
+    public static final Item CHARGED_THUNDERSTONE;
     public static final Item COIN_COLLECTOR_TROPHY;
     public static final Item ENDER_COIN;
+    public static final Item FIGURINE_OF_JUMPING;
     public static final Item MAGNIFYING_GLASS;
     public static final Item NUMISMATIC_DESK;
     public static final Item ODD_GREEN_FIGURINE;
@@ -33,8 +35,10 @@ public class NumisArchItems {
         Registry.register(Registries.ITEM, id("ancient_activator"), ANCIENT_ACTIVATOR);
         Registry.register(Registries.ITEM, id("animal_coin"), ANIMAL_COIN);
         Registry.register(Registries.ITEM, id("bee_coin"), BEE_COIN);
+        Registry.register(Registries.ITEM, id("charged_thunderstone"), CHARGED_THUNDERSTONE);
         Registry.register(Registries.ITEM, id("coin_collector_trophy"), COIN_COLLECTOR_TROPHY);
         Registry.register(Registries.ITEM, id("ender_coin"), ENDER_COIN);
+        Registry.register(Registries.ITEM, id("figurine_of_jumping"), FIGURINE_OF_JUMPING);
         Registry.register(Registries.ITEM, id("magnifying_glass"), MAGNIFYING_GLASS);
         Registry.register(Registries.ITEM, id("numismatic_desk"), NUMISMATIC_DESK);
         Registry.register(Registries.ITEM, id("odd_green_figurine"), ODD_GREEN_FIGURINE);
@@ -54,8 +58,10 @@ public class NumisArchItems {
         ANCIENT_ACTIVATOR = new BlockItem(NumisArchBlocks.ANCIENT_ACTIVATOR, new FabricItemSettings());
         ANIMAL_COIN = new Item(new FabricItemSettings());
         BEE_COIN =  new Item(new FabricItemSettings());
+        CHARGED_THUNDERSTONE = new ChargedThunderstoneItem(new FabricItemSettings());
         COIN_COLLECTOR_TROPHY = new BlockItem(NumisArchBlocks.COIN_COLLECTOR_TROPHY, new FabricItemSettings());
         ENDER_COIN =  new Item(new FabricItemSettings());
+        FIGURINE_OF_JUMPING = new FigurineOfJumpingItem(new FabricItemSettings().maxDamage(6));
         MAGNIFYING_GLASS = new MagnifyingGlassItem(new FabricItemSettings().maxCount(1));
         NUMISMATIC_DESK = new BlockItem(NumisArchBlocks.NUMISMATIC_DESK, new FabricItemSettings());
         ODD_GREEN_FIGURINE = new Item(new FabricItemSettings().maxCount(1));

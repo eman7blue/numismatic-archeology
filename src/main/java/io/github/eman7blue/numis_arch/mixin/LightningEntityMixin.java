@@ -1,6 +1,7 @@
 package io.github.eman7blue.numis_arch.mixin;
 
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
+import io.github.eman7blue.numis_arch.block.entity.AncientActivatorBlockEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.LightningRodBlock;
@@ -30,6 +31,12 @@ public abstract class LightningEntityMixin {
         }
         if (state.isOf(Blocks.STONE)) {
             world.setBlockState(pos, NumisArchBlocks.THUNDERSTONE_BLOCK.getDefaultState());
+        }
+        if (state.isOf(NumisArchBlocks.ANCIENT_ACTIVATOR)) {
+            AncientActivatorBlockEntity ancientActivatorBlockEntity = (AncientActivatorBlockEntity) world.getBlockEntity(pos);
+            if (ancientActivatorBlockEntity != null) {
+                world.setBlockState(pos, ancientActivatorBlockEntity.struckByLightning(state, world, ((LightningEntity)(Object)this)));
+            }
         }
 
         int i = world.random.nextInt(3) + 2;

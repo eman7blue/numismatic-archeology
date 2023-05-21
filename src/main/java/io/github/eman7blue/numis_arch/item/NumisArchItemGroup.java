@@ -33,7 +33,9 @@ public class NumisArchItemGroup {
                     entries.add(NumisArchItems.TURTLE_COIN);
                     entries.add(NumisArchItems.VILLAGER_COIN);
                     entries.add(NumisArchItems.ODD_GREEN_FIGURINE);
+                    entries.add(NumisArchItems.FIGURINE_OF_JUMPING);
                     entries.add(NumisArchItems.THUNDERSTONE);
+                    entries.add(NumisArchItems.CHARGED_THUNDERSTONE);
                     entries.add(NumisArchItems.MAGNIFYING_GLASS);
                     entries.add(NumisArchItems.SUSPICIOUS_RED_SAND);
                     entries.add(NumisArchItems.SUSPICIOUS_SOUL_SAND);

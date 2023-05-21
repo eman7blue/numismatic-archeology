@@ -1,0 +1,7 @@
+{
+  "type": "numis_arch:ancient_activating",
+  "input": {
+    "item": "minecraft:stone"
+  },
+  "output": "numis_arch:thunderstone_block"
+}

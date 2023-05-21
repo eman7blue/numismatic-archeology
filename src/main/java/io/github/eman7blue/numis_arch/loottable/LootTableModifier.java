@@ -9,16 +9,16 @@ import net.minecraft.loot.entry.ItemEntry;
 
 public class LootTableModifier {
 
-    private static void addCoinToExistingLootTable(Item coin, LootTable.Builder tableBuilder) {
-        tableBuilder.modifyPools((poolBuilder) -> poolBuilder.with(ItemEntry.builder(coin).weight(2)));
+    private static void addCoinToExistingLootTable(Item coin, LootTable.Builder tableBuilder, int weight) {
+        tableBuilder.modifyPools((poolBuilder) -> poolBuilder.with(ItemEntry.builder(coin).weight(weight)));
     }
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register(((resourceManager, lootManager, id, tableBuilder, source) -> {
             if (LootTables.DESERT_PYRAMID_ARCHAEOLOGY.equals(id))
-                addCoinToExistingLootTable(NumisArchItems.TURTLE_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.TURTLE_COIN, tableBuilder, 1);
             if (LootTables.OCEAN_RUIN_WARM_ARCHAEOLOGY.equals(id))
-                addCoinToExistingLootTable(NumisArchItems.SNIFFER_COIN, tableBuilder);
+                addCoinToExistingLootTable(NumisArchItems.SNIFFER_COIN, tableBuilder, 2);
         }));
     }
 }

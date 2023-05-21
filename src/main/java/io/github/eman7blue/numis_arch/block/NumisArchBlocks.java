@@ -9,6 +9,7 @@ import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
 
@@ -68,11 +69,11 @@ public class NumisArchBlocks {
                 .sounds(BlockSoundGroup.STONE)
                 .instrument(Instrument.BASEDRUM),
                     SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
-        THUNDERSTONE_BLOCK = new Block(FabricBlockSettings.create()
+        THUNDERSTONE_BLOCK = new ExperienceDroppingBlock(FabricBlockSettings.create()
                 .mapColor(MapColor.YELLOW)
                 .strength(2.5F, 3.5F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.STONE)
-                .instrument(Instrument.BASEDRUM));
+                .instrument(Instrument.BASEDRUM), UniformIntProvider.create(1, 3));
     }
 }

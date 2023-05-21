@@ -1,5 +1,9 @@
 package io.github.eman7blue.numis_arch.block.entity;
 
+import io.github.eman7blue.numis_arch.NumismaticArcheology;
+import io.github.eman7blue.numis_arch.block.AncientActivatorBlock;
+import io.github.eman7blue.numis_arch.recipe.AncientActivatingRecipe;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LightningEntity;
@@ -12,11 +16,17 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.registry.DynamicRegistryManager;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class AncientActivatorBlockEntity extends BlockEntity implements SidedInventory {
     private DefaultedList<ItemStack> storedItem;
@@ -31,7 +41,15 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
         storedItem.set(0, itemStack.copyWithCount(1));
     }
 
-    public BlockState struckByLightning(BlockState state, World world, BlockPos pos, LightningEntity entity) {
+    public BlockState struckByLightning(BlockState state, World world, LightningEntity entity) {
+        if (state.getBlock() instanceof AncientActivatorBlock) {
+            Optional<AncientActivatingRecipe> recipeMatch = world.getRecipeManager().getFirstMatch(AncientActivatingRecipe.Type.INSTANCE, this, world);
+            recipeMatch.ifPresent(ancientActivatingRecipe -> {
+                this.setStack(0, ancientActivatingRecipe.getOutput(DynamicRegistryManager.EMPTY));
+                NumismaticArcheology.LOGGER.info("AMONG US");
+            });
+            return getCachedState().with(AncientActivatorBlock.STRUCK_BY_LIGHTNING, true);
+        }
         return state;
     }
 
@@ -75,16 +93,19 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
     }
 
     public ItemStack removeStack() {
+        updateOnRemove();
         return storedItem.set(0, ItemStack.EMPTY);
     }
 
     @Override
     public ItemStack removeStack(int slot, int amount) {
+        updateOnRemove();
         return Inventories.splitStack(this.storedItem, slot, amount);
     }
 
     @Override
     public ItemStack removeStack(int slot) {
+        updateOnRemove();
         return Inventories.removeStack(this.storedItem, slot);
     }
 
@@ -92,6 +113,7 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
     public void setStack(int slot, ItemStack stack) {
         if (slot >= 0 && slot < maxSize)
             this.storedItem.set(slot, stack.copyWithCount(1));
+        updateOnRemove();
     }
 
     @Override
@@ -102,6 +124,7 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
     @Override
     public void clear() {
         this.storedItem.set(0, ItemStack.EMPTY);
+        updateOnRemove();
     }
 
     @Override
@@ -111,11 +134,19 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
 
     @Override
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return false;
+        if (!this.isEmpty()) {
+            return false;
+        }
+        return stack.isIn(TagKey.of(RegistryKeys.ITEM, new Identifier("numis_arch", "can_be_lightning_activated")));
     }
 
     @Override
     public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return false;
+        return true;
+    }
+
+    private void updateOnRemove(){
+        world.setBlockState(pos, getCachedState().with(AncientActivatorBlock.STRUCK_BY_LIGHTNING, false));
+        world.updateListeners(pos, getCachedState(), getCachedState().with(AncientActivatorBlock.STRUCK_BY_LIGHTNING, false), Block.NOTIFY_LISTENERS);
     }
 }

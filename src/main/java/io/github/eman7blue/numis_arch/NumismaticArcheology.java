@@ -6,6 +6,7 @@ import io.github.eman7blue.numis_arch.block.entity.NumisArchBlockEntityTypes;
 import io.github.eman7blue.numis_arch.item.NumisArchItemGroup;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import io.github.eman7blue.numis_arch.loottable.LootTableModifier;
+import io.github.eman7blue.numis_arch.recipe.NumisArchRecipes;
 import io.github.eman7blue.numis_arch.structure.NumisArchStructure;
 import io.github.eman7blue.numis_arch.structure.StructureProcessorModifier;
 import io.github.eman7blue.numis_arch.village.NumisArchPointOfInterestType;
@@ -39,6 +40,7 @@ public class NumismaticArcheology implements ModInitializer {
 		NumisArchPointOfInterestType.registerPOI();
 		NumisArchProfession.registerProfessions();
 		NumisArchTradeOffers.registerTrades();
+		NumisArchRecipes.registerRecipes();
 
 		LOGGER.info("Maj says \"COINR!\"");
 	}
