@@ -1,8 +1,10 @@
 package io.github.eman7blue.numis_arch.village;
 
+import io.github.eman7blue.numis_arch.item.CoinItem;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import net.fabricmc.fabric.api.object.builder.v1.trade.TradeOfferHelper;
 import net.minecraft.block.Blocks;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.village.TradeOffers;
 
@@ -65,7 +67,9 @@ public class NumisArchTradeOffers {
         });
 
         TradeOfferHelper.registerVillagerOffers(NumisArchProfession.ARCHEOLOGIST, 5, factories -> {
-            factories.add(new TradeOffers.SellItemFactory(NumisArchItems.VILLAGER_COIN, 50, 1, 1, 30));
+            ItemStack villagerCoin = NumisArchItems.VILLAGER_COIN.getDefaultStack();
+            villagerCoin.getOrCreateNbt().putInt("condition", CoinItem.Condition.SUPERB);
+            factories.add(new TradeOffers.SellItemFactory(villagerCoin, 50, 1, 1, 30));
             factories.add(new TradeOffers.ProcessItemFactory(Blocks.SAND, 16, 43, Items.SUSPICIOUS_SAND, 1, 3, 30));
             factories.add(new TradeOffers.ProcessItemFactory(Blocks.GRAVEL, 16, 43, Items.SUSPICIOUS_GRAVEL, 1, 3, 30));
             factories.add(new TradeOffers.ProcessItemFactory(Blocks.RED_SAND, 16, 43, NumisArchItems.SUSPICIOUS_RED_SAND, 1, 3, 30));

@@ -3,6 +3,7 @@ package io.github.eman7blue.numis_arch.item;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BlockItem;
+import net.minecraft.item.BrushItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -15,6 +16,7 @@ public class NumisArchItems {
     public static final Item BEE_COIN;
     public static final Item CHARGED_THUNDERSTONE;
     public static final Item COIN_COLLECTOR_TROPHY;
+    public static final Item DIAMOND_BRUSH;
     public static final Item ENDER_COIN;
     public static final Item FIGURINE_OF_JUMPING;
     public static final Item MAGNIFYING_GLASS;
@@ -37,6 +39,7 @@ public class NumisArchItems {
         Registry.register(Registries.ITEM, id("bee_coin"), BEE_COIN);
         Registry.register(Registries.ITEM, id("charged_thunderstone"), CHARGED_THUNDERSTONE);
         Registry.register(Registries.ITEM, id("coin_collector_trophy"), COIN_COLLECTOR_TROPHY);
+        Registry.register(Registries.ITEM, id("diamond_brush"), DIAMOND_BRUSH);
         Registry.register(Registries.ITEM, id("ender_coin"), ENDER_COIN);
         Registry.register(Registries.ITEM, id("figurine_of_jumping"), FIGURINE_OF_JUMPING);
         Registry.register(Registries.ITEM, id("magnifying_glass"), MAGNIFYING_GLASS);
@@ -56,24 +59,25 @@ public class NumisArchItems {
 
     static {
         ANCIENT_ACTIVATOR = new BlockItem(NumisArchBlocks.ANCIENT_ACTIVATOR, new FabricItemSettings());
-        ANIMAL_COIN = new Item(new FabricItemSettings());
-        BEE_COIN =  new Item(new FabricItemSettings());
+        ANIMAL_COIN = new CoinItem(new FabricItemSettings());
+        BEE_COIN =  new CoinItem(new FabricItemSettings());
         CHARGED_THUNDERSTONE = new ChargedThunderstoneItem(new FabricItemSettings());
         COIN_COLLECTOR_TROPHY = new BlockItem(NumisArchBlocks.COIN_COLLECTOR_TROPHY, new FabricItemSettings());
-        ENDER_COIN =  new Item(new FabricItemSettings());
+        DIAMOND_BRUSH = new BrushItem(new FabricItemSettings());
+        ENDER_COIN =  new CoinItem(new FabricItemSettings());
         FIGURINE_OF_JUMPING = new FigurineOfJumpingItem(new FabricItemSettings().maxDamage(6));
         MAGNIFYING_GLASS = new MagnifyingGlassItem(new FabricItemSettings().maxCount(1));
         NUMISMATIC_DESK = new BlockItem(NumisArchBlocks.NUMISMATIC_DESK, new FabricItemSettings());
         ODD_GREEN_FIGURINE = new Item(new FabricItemSettings().maxCount(1));
-        PARROT_COIN = new Item(new FabricItemSettings());
-        PIGLIN_COIN = new Item(new FabricItemSettings());
-        SNIFFER_COIN = new Item(new FabricItemSettings());
+        PARROT_COIN = new CoinItem(new FabricItemSettings());
+        PIGLIN_COIN = new CoinItem(new FabricItemSettings());
+        SNIFFER_COIN = new CoinItem(new FabricItemSettings());
         SUSPICIOUS_END_STONE = new BlockItem(NumisArchBlocks.SUSPICIOUS_END_STONE, new FabricItemSettings());
         SUSPICIOUS_RED_SAND = new BlockItem(NumisArchBlocks.SUSPICIOUS_RED_SAND, new FabricItemSettings());
         SUSPICIOUS_SOUL_SAND = new BlockItem(NumisArchBlocks.SUSPICIOUS_SOUL_SAND, new FabricItemSettings());
         THUNDERSTONE = new Item(new FabricItemSettings());
         THUNDERSTONE_BLOCK = new BlockItem(NumisArchBlocks.THUNDERSTONE_BLOCK, new FabricItemSettings());
-        TURTLE_COIN = new Item(new FabricItemSettings());
-        VILLAGER_COIN = new Item(new FabricItemSettings());
+        TURTLE_COIN = new CoinItem(new FabricItemSettings());
+        VILLAGER_COIN = new CoinItem(new FabricItemSettings());
     }
 }

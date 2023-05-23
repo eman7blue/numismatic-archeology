@@ -1,0 +1,7 @@
+{
+  "type": "numis_arch:numismatic_grading",
+  "input": {
+    "item": "numis_arch:ender_coin"
+  },
+  "output": "numis_arch:ender_coin"
+}

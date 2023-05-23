@@ -16,11 +16,20 @@
   "block.numis_arch.suspicious_soul_sand": "Suspicious Soul Sand",
   "block.numis_arch.thunderstone_block": "Thunderstone",
 
+  "coin.condition.unknown": "Unknown Condition",
+  "coin.condition.poor": "Poor",
+  "coin.condition.fine": "Fine",
+  "coin.condition.superb": "Superb",
+  "coin.condition.impossible": "Impossible Condition",
+
+  "container.numismatic_desk": "Numismatic Desk",
+
   "entity.minecraft.villager.archeologist":  "Archeologist",
 
   "item.numis_arch.animal_coin": "Animal Coin",
   "item.numis_arch.bee_coin": "Bee Coin",
   "item.numis_arch.charged_thunderstone": "Charged Thunderstone",
+  "item.numis_arch.diamond_brush": "Diamond Brush",
   "item.numis_arch.ender_coin": "Ender Coin",
   "item.numis_arch.figurine_of_jumping": "Figurine Of Jumping",
   "item.numis_arch.magnifying_glass": "Magnifying Glass",
@@ -33,6 +42,7 @@
   "item.numis_arch.villager_coin": "Villager Coin",
 
   "itemGroup.numis_arch.numismaticArcheology": "Numismatic Archeology",
+  "itemGroup.numis_arch.numismaticArcheologyCoins": "Numismatic Archeology Coins",
 
   "subtitles.numis_arch.entity.villager.work_archeologist": "Archeologist works"
 }

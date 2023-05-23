@@ -1,6 +1,5 @@
-package io.github.eman7blue.numis_arch.client.handler;
+package io.github.eman7blue.numis_arch.client.gui;
 
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BrushableBlockEntity;

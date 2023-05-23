@@ -17,10 +17,12 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Block.class)
 public abstract class BlockMixin {
-    @Inject(at = @At("HEAD"), method = "afterBreak")
-    public void afterBreak(World world, PlayerEntity player, BlockPos pos, BlockState state, BlockEntity blockEntity, ItemStack tool, CallbackInfo ci) {
-        if(!world.isClient && blockEntity instanceof BrushableBlockEntity brushableBlockEntity) {
-            NumismaticArcheology.ARCHEOLOGY_BLOCK_DESTROYED.trigger((ServerPlayerEntity) player, state, ((BrushableBlockEntityAccessor) brushableBlockEntity).getLootTable());
+    @Inject(at = @At("HEAD"), method = "onBreak")
+    public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfo ci) {
+        if (world.getBlockEntity(pos) != null) {
+            if(!world.isClient && world.getBlockEntity(pos) instanceof BrushableBlockEntity brushableBlockEntity) {
+                NumismaticArcheology.ARCHEOLOGY_BLOCK_DESTROYED.trigger((ServerPlayerEntity) player, state, ((BrushableBlockEntityAccessor) brushableBlockEntity).getLootTable());
+            }
         }
     }
 }

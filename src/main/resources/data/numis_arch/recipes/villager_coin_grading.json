@@ -1,0 +1,10 @@
+{
+  "type": "numis_arch:numismatic_grading",
+  "input": {
+    "item": "numis_arch:villager_coin"
+  },
+  "output": "numis_arch:villager_coin",
+  "poor": 40,
+  "fine": 59,
+  "superb": 1
+}
