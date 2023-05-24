@@ -6,7 +6,8 @@
         "items": [
           {
             "items": [
-              "minecraft:glass"
+              "minecraft:glass",
+              "minecraft:gold"
             ]
           }
         ]

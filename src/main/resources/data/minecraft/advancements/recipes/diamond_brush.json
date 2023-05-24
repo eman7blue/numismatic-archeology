@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_thunderstone": {
+    "has_diamond": {
       "conditions": {
         "items": [
           {
             "items": [
-              "numis_arch:thunderstone"
+              "minecraft:diamond"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "numis_arch:ancient_activator"
+        "recipe": "numis_arch:diamond_brush"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_thunderstone",
+      "has_diamond",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "numis_arch:ancient_activator"
+      "numis_arch:diamond_brush"
     ]
   }
 }

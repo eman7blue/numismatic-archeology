@@ -63,7 +63,7 @@ public class NumisArchItems {
         BEE_COIN =  new CoinItem(new FabricItemSettings());
         CHARGED_THUNDERSTONE = new ChargedThunderstoneItem(new FabricItemSettings());
         COIN_COLLECTOR_TROPHY = new BlockItem(NumisArchBlocks.COIN_COLLECTOR_TROPHY, new FabricItemSettings());
-        DIAMOND_BRUSH = new BrushItem(new FabricItemSettings());
+        DIAMOND_BRUSH = new BrushItem(new FabricItemSettings().maxDamage(96));
         ENDER_COIN =  new CoinItem(new FabricItemSettings());
         FIGURINE_OF_JUMPING = new FigurineOfJumpingItem(new FabricItemSettings().maxDamage(6));
         MAGNIFYING_GLASS = new MagnifyingGlassItem(new FabricItemSettings().maxCount(1));
