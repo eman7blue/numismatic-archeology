@@ -144,5 +144,6 @@
     "recipes": [
       "numis_arch:coin_collector_trophy"
     ]
-  }
+  },
+  "sends_telemetry_event": true
 }

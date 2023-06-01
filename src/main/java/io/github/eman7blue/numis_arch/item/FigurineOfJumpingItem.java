@@ -26,12 +26,16 @@ public class FigurineOfJumpingItem extends Item {
         for (StatusEffectInstance status : user.getStatusEffects()) {
             if (status.getEffectType().equals(StatusEffects.JUMP_BOOST)) {
                 bl = false;
+                int duration = status.getDuration() + 1800;
+                if (status.getDuration() <= 10800) {
+                    duration = status.getDuration();
+                }
                 if (status.getAmplifier() == 0) {
-                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, status.getDuration() + 1800, 1));
+                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, duration, 1));
                 } else if (status.getAmplifier() == 1) {
-                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, status.getDuration() + 1800, 2));
+                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, duration, 2));
                 } else {
-                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, status.getDuration() + 1800, status.getAmplifier()));
+                    status.upgrade(new StatusEffectInstance(StatusEffects.JUMP_BOOST, duration, status.getAmplifier()));
                 }
                 user.getStackInHand(hand).damage(1, user, pl -> pl.sendToolBreakStatus(hand));
             }

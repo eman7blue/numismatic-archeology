@@ -1,6 +1,26 @@
 {
-  "parent": "item/generated",
+  "parent": "item/brush",
   "textures": {
     "layer0": "numis_arch:item/diamond_brush"
-  }
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "brushing": 0.25
+      },
+      "model": "numis_arch:item/diamond_brush_brushing_0"
+    },
+    {
+      "predicate": {
+        "brushing": 0.5
+      },
+      "model": "numis_arch:item/diamond_brush_brushing_1"
+    },
+    {
+      "predicate": {
+        "brushing": 0.75
+      },
+      "model": "numis_arch:item/diamond_brush_brushing_2"
+    }
+  ]
 }

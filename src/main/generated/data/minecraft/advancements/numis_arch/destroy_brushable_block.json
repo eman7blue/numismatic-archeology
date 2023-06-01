@@ -56,5 +56,6 @@
       "break_suspicious_soul_sand",
       "break_suspicious_end_stone"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

@@ -124,5 +124,6 @@
       "turtle_coin",
       "villager_coin"
     ]
-  ]
+  ],
+  "sends_telemetry_event": true
 }

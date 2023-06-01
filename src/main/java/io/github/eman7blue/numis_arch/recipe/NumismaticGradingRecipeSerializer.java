@@ -29,7 +29,7 @@ public class NumismaticGradingRecipeSerializer implements RecipeSerializer<Numis
             throw new JsonSyntaxException("Missing attributes for numismatic desk recipe!");
         }
         if (poor == 0 || fine == 0 || superb == 0) {
-            LOGGER.info("Missing one or more odds for numismatic desk recipe " + recipeJson.output + ", using default odds (6 poor; 13 fine; 1 superb) instead");
+            LOGGER.warn("Missing one or more odds for numismatic desk recipe " + recipeJson.output + ", using default odds (6 poor; 13 fine; 1 superb) instead");
             poor = 6;
             fine = 13;
             superb = 1;

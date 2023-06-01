@@ -1,6 +1,27 @@
 {
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "numis_arch:item/magnifying_glass"
-  }
+	"credit": "Made with Blockbench",
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "numis_arch:item/magnifying_glass"
+	},
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [0, 0, 85],
+			"translation": [-4.75, 4.75, 0.75],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [0, 0, -9],
+			"translation": [-4.75, 4.75, 0.75],
+			"scale": [0.75, 0.75, 0.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [55, 85, 0],
+			"translation": [8, 0.5, -5.5]
+		},
+		"firstperson_lefthand": {
+			"rotation": [55, -85, 0],
+			"translation": [8, 0.5, -5.5]
+		}
+	}
 }

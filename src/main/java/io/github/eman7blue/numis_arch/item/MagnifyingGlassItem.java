@@ -11,6 +11,7 @@ import net.minecraft.item.ItemUsage;
 import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.UseAction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.RaycastContext;
@@ -18,8 +19,20 @@ import net.minecraft.world.World;
 
 public class MagnifyingGlassItem extends Item {
 
+    private static final int MAX_USE_TIME = 900;
+
     public MagnifyingGlassItem(Settings settings){
         super(settings);
+    }
+
+    @Override
+    public UseAction getUseAction(ItemStack stack) {
+        return UseAction.BRUSH;
+    }
+
+    @Override
+    public int getMaxUseTime(ItemStack stack) {
+        return MAX_USE_TIME;
     }
 
 

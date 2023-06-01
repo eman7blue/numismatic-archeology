@@ -1,15 +1,24 @@
 package io.github.eman7blue.numis_arch.datagen;
 
+import io.github.eman7blue.numis_arch.advancements.NumisArchAdvancements;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
+import io.github.eman7blue.numis_arch.recipe.AncientActivatingRecipeSerializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricAdvancementProvider;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
+import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.RecipeJsonBuilder;
+import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
@@ -22,13 +31,20 @@ import net.minecraft.loot.function.SetCountLootFunction;
 import net.minecraft.loot.operator.BoundedIntUnaryOperator;
 import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
 import net.minecraft.loot.provider.number.UniformLootNumberProvider;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.*;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.world.poi.PointOfInterest;
+import net.minecraft.world.poi.PointOfInterestType;
 
+import javax.swing.text.html.HTML;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
+import java.util.function.Consumer;
+
+import static io.github.eman7blue.numis_arch.NumismaticArcheology.MOD_ID;
+import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
 
 public class DataGeneration implements DataGeneratorEntrypoint {
     @Override
@@ -38,7 +54,20 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         pack.addProvider(NumisArchBlockTagGenerator::new);
         pack.addProvider(NumisArchAdvancementsProvider::new);
         pack.addProvider(NumisArchLootTableGenerator::new);
+        pack.addProvider(NumisArchPOITagGenerator::new);
+        pack.addProvider(NumisArchRecipeGenerator::new);
     }
+
+    private static class NumisArchAdvancementsProvider extends FabricAdvancementProvider {
+        protected NumisArchAdvancementsProvider(FabricDataOutput dataGen) {
+            super(dataGen);
+        }
+        @Override
+        public void generateAdvancement(Consumer<Advancement> consumer) {
+            new NumisArchAdvancements().accept(consumer);
+        }
+    }
+
 
     private static class NumisArchLootTableGenerator extends SimpleFabricLootTableProvider {
         public NumisArchLootTableGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
@@ -205,14 +234,14 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         }
     }
 
-    private static class NumisArchItemTagGenerator extends FabricTagProvider<Item> {
+    private static class NumisArchItemTagGenerator extends FabricTagProvider.ItemTagProvider {
         public NumisArchItemTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-            super(output, RegistryKeys.ITEM, registriesFuture);
+            super(output, registriesFuture);
         }
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup registries) {
-            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("numis_arch", "coins")))
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, id("coins")))
                     .add(NumisArchItems.ANIMAL_COIN)
                     .add(NumisArchItems.BEE_COIN)
                     .add(NumisArchItems.ENDER_COIN)
@@ -221,29 +250,116 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                     .add(NumisArchItems.SNIFFER_COIN)
                     .add(NumisArchItems.TURTLE_COIN)
                     .add(NumisArchItems.VILLAGER_COIN);
-            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, new Identifier("numis_arch", "can_be_lightning_activated")))
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, id("can_be_lightning_activated")))
                     .add(NumisArchItems.ODD_GREEN_FIGURINE)
                     .add(Items.STONE)
                     .add(NumisArchItems.THUNDERSTONE);
         }
     }
 
-    private static class NumisArchBlockTagGenerator extends FabricTagProvider<Block> {
+    private static class NumisArchBlockTagGenerator extends FabricTagProvider.BlockTagProvider {
         public NumisArchBlockTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-            super(output, RegistryKeys.BLOCK, registriesFuture);
+            super(output, registriesFuture);
         }
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup registries) {
-            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("numis_arch", "brushable")))
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, id("brushable")))
                     .add(Blocks.SUSPICIOUS_SAND)
                     .add(Blocks.GRAVEL)
                     .add(NumisArchBlocks.SUSPICIOUS_RED_SAND)
                     .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND)
                     .add(NumisArchBlocks.SUSPICIOUS_END_STONE);
-            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("numis_arch", "nether_wart_plantable")))
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, id("nether_wart_plantable")))
                     .add(Blocks.SOUL_SAND)
                     .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("sand")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.SUSPICIOUS_RED_SAND);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("needs_stone_tool")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.COIN_COLLECTOR_TROPHY);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("mineable/axe")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.NUMISMATIC_DESK);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("mineable/pickaxe")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.THUNDERSTONE_BLOCK)
+                    .add(NumisArchBlocks.ANCIENT_ACTIVATOR)
+                    .add(NumisArchBlocks.COIN_COLLECTOR_TROPHY)
+                    .add(NumisArchBlocks.SUSPICIOUS_END_STONE);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("mineable/shovel")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND)
+                    .add(NumisArchBlocks.SUSPICIOUS_RED_SAND);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("soul_fire_base_blocks")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND);
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.BLOCK, new Identifier("soul_speed_blocks")))
+                    .setReplace(false)
+                    .add(NumisArchBlocks.SUSPICIOUS_SOUL_SAND);
+
+        }
+    }
+
+    private static class NumisArchPOITagGenerator extends FabricTagProvider<PointOfInterestType> {
+
+        public NumisArchPOITagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+            super(output, RegistryKeys.POINT_OF_INTEREST_TYPE, registriesFuture);
+        }
+
+        @Override
+        protected void configure(RegistryWrapper.WrapperLookup arg) {
+            getOrCreateTagBuilder(TagKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier("acquirable_job_site")))
+                    .setReplace(false)
+                    .add(id("archeologist"));
+        }
+    }
+
+    private static class NumisArchRecipeGenerator extends FabricRecipeProvider {
+        public NumisArchRecipeGenerator(FabricDataOutput output) {
+            super(output);
+        }
+
+        @Override
+        public void generate(Consumer<RecipeJsonProvider> exporter) {
+            ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, NumisArchItems.DIAMOND_BRUSH, 1)
+                    .criterion("has_diamond", InventoryChangedCriterion.Conditions.items(Items.DIAMOND))
+                    .input('I', Items.STICK)
+                    .input('#', Items.DIAMOND)
+                    .input('X', Items.FEATHER)
+                    .pattern("X")
+                    .pattern("#")
+                    .pattern("I")
+                    .offerTo(exporter);
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, NumisArchItems.ANCIENT_ACTIVATOR, 1)
+                    .criterion("has_thunderstone", InventoryChangedCriterion.Conditions.items(NumisArchItems.THUNDERSTONE))
+                    .input('C', Items.COPPER_INGOT)
+                    .input('E', Items.ECHO_SHARD)
+                    .input('T', NumisArchItems.THUNDERSTONE)
+                    .input('S', Items.STONE_BRICKS)
+                    .pattern("CEC")
+                    .pattern("CTC")
+                    .pattern("SSS")
+                    .offerTo(exporter);
+            ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, NumisArchItems.MAGNIFYING_GLASS)
+                    .criterion("has_gold", InventoryChangedCriterion.Conditions.items(Items.GOLD_INGOT))
+                    .input('G', Items.GLASS)
+                    .input('O', Items.GOLD_INGOT)
+                    .input('S', Items.STICK)
+                    .pattern("  G")
+                    .pattern(" O ")
+                    .pattern("S  ")
+                    .offerTo(exporter);
+            ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, NumisArchItems.NUMISMATIC_DESK)
+                    .criterion("has_magnifying_glass", InventoryChangedCriterion.Conditions.items(NumisArchItems.MAGNIFYING_GLASS))
+                    .input('#', TagKey.of(RegistryKeys.ITEM, new Identifier("planks")))
+                    .input('M', NumisArchItems.MAGNIFYING_GLASS)
+                    .pattern("M")
+                    .pattern("#")
+                    .offerTo(exporter);
+
+
         }
     }
 }
