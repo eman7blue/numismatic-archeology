@@ -23,6 +23,20 @@ The coins have to be in alphabetical order, otherwise it won't work.
 ![Minecraft recipe showing eight coins surrounding a gold block][trophy_recipe]
 </details>
 
+## New Archeology Tools
+
+### Diamond Brush
+
+The diamond brush is a better version of the brush, and brushes up items at twice the speed.
+
+### Magnifying Glass
+
+The magnifying glass can be used to see what is inside a suspicious block before it is brushed.
+
+### Numismatic Desk
+
+The numismatic desk can be used to discover the conditions of coins. The common conditions are Poor and Fine, with the Superb condition being the rarest. The desk can also be used to store coins if needed, and functions as the workstation for the archeologist villager.
+
 ## Buried Hoard
 
 The buried hoard feature spawns in deserts and badlands. It's disguised as a normal dead bush, however with suspicious sand (or red sand) underneath it, which might contain a coin. Buried near is a hidden barrel with treasure inside!
@@ -63,20 +77,29 @@ The piglin coin can only be found in the center of housing bastions.
 ![Some suspicious soul sand in a bastion, with a baby hoglin in the background][bastion_stable]
 </details>
 
+## Some "shocking" new additions
 
+### Thunderstone
 
+Thunderstone blocks generate when regular stone is struck by lightning. Mine it to get Thunderstone, which is used in crafting recipes regarding new lightning mechanics.
+
+### Ancient Activation
+
+The Ancient Activator is crafted using thunderstone, and is used in ancient activation crafting. Striking thunderstone with lightning on the ancient activator charges it, and it can be used to summon lighting when used once. Perhaps some other odd things can be ancient activated.
 ***
 
-### What's Next?
+## What's Next?
 
 * More interesting archeology finds
-* Use for the Numismatic Desk
-* Better brushes
-* Something involving lightning...
+* More odd figurines
+* Brush enchantments
+* Something in the badlands...
 
-Note for 1.19.4 - I don't plan on supporting 1.19.4 due to nearly all content is locked behind the 1.20 experimental 
-datapack. That version only exists because it's the most recent release which includes archeology. This mod is mainly focused on the Trails & Tales update.
+### Note for 1.19.4
 
+I don't plan on supporting 1.19.4 and any previous versions due to much of the content is locked behind the 1.20 experimental datapack and the archeology mechanic. That version only exists because it was the most recent release which includes archeology. This mod is mainly focused on the Trails & Tales update.
+
+***
 
 Thanks to SquidCat for the suspicious block textures <3.
 > "the end coin looks nice" - hatman321
