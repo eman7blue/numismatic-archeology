@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "numis_arch:thunderstone_block",
+    "numis_arch:ancient_activator",
+    "numis_arch:coin_collector_trophy",
+    "numis_arch:suspicious_end_stone"
+  ]
+}

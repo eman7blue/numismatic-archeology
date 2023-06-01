@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "M": {
+      "item": "numis_arch:magnifying_glass"
+    }
+  },
+  "pattern": [
+    "M",
+    "#"
+  ],
+  "result": {
+    "item": "numis_arch:numismatic_desk"
+  },
+  "show_notification": true
+}
