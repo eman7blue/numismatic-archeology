@@ -27,13 +27,19 @@ The coins have to be in alphabetical order, otherwise it won't work.
 
 ### Diamond Brush
 
+![Minecraft recipe with a feather on top, a diamond in the middle, and a stick on the bottom][diamond_brush_recipe]
+
 The diamond brush is a better version of the brush, and brushes up items at twice the speed.
 
 ### Magnifying Glass
 
+![Diagonal minecraft recipe with glass on top, gold ingot in the middle, and a stick on the bottom][magnifying_glass_recipe]
+
 The magnifying glass can be used to see what is inside a suspicious block before it is brushed.
 
 ### Numismatic Desk
+
+![Minecraft recipe with a magnifying glass on top of a wooden plank][desk_recipe]
 
 The numismatic desk can be used to discover the conditions of coins. The common conditions are Poor and Fine, with the Superb condition being the rarest. The desk can also be used to store coins if needed, and functions as the workstation for the archeologist villager.
 
@@ -85,6 +91,8 @@ Thunderstone blocks generate when regular stone is struck by lightning. Mine it 
 
 ### Ancient Activation
 
+![Minecraft recipe with a thunderstone in the middle, 3 stone bricks on the bottom, 4 copper on each side, and an echo shard on the top][activator_recipe]
+
 The Ancient Activator is crafted using thunderstone, and is used in ancient activation crafting. Striking thunderstone with lightning on the ancient activator charges it, and it can be used to summon lighting when used once. Perhaps some other odd things can be ancient activated.
 ***
 
@@ -103,10 +111,14 @@ I don't plan on supporting 1.19.4 and any previous versions due to much of the c
 Thanks to SquidCat for the suspicious block textures <3.
 > "the end coin looks nice" - hatman321
 
-[logo]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/numis_arch_logo_modified.png "Numismatic Archeology"
-[trophy_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/trophy_recipe.png "Now let's see Paul Allen's Coin Collecting Trophy"
-[buried_hoard_1]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/buried_hoard_1.gif "Wow a diamond!"
-[buried_hoard_2]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/buried_hoard_2.gif "That's it? An emerald and some gold? Man, what a gyp."
-[bastion_housing]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/bastion_housing.png "Also nether wart can grow on the sussy soul sand"
-[bastion_garden]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/bastion_garden.png "The bastion garden sometimes generates in the housing units bastion"
-[bastion_stable]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.19/assets/bastion_stable.png "Did you know that soul sand naturally generates in hoglin stable bastions?"
+[logo]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/numis_arch_logo_2.png "Numismatic Archeology"
+[trophy_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/trophy_recipe.png "Now let's see Paul Allen's Coin Collecting Trophy"
+[magnifying_glass_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/magnifying_glass_recipe.png "And here's the looker"
+[activator_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/activator_recipe.png "IT'S ALIIIVEEE"
+[desk_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/desk_recipe.png "coin nerd"
+[diamond_brush_recipe]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/diamond_brush_recipe.png "netherite brush soon(tm)"
+[buried_hoard_1]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/buried_hoard_1.gif "Wow a diamond!"
+[buried_hoard_2]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/buried_hoard_2.gif "That's it? An emerald and some gold? Man, what a gyp."
+[bastion_housing]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/bastion_housing.png "Also nether wart can grow on the sussy soul sand"
+[bastion_garden]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/bastion_garden.png "The bastion garden sometimes generates in the housing units bastion"
+[bastion_stable]: https://raw.githubusercontent.com/eman7blue/numismatic-archeology/1.20/assets/bastion_stable.png "Did you know that soul sand naturally generates in hoglin stable bastions?"
