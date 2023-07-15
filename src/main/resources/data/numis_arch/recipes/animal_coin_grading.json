@@ -1,7 +1,0 @@
-{
-  "type": "numis_arch:numismatic_grading",
-  "input": {
-    "item": "numis_arch:animal_coin"
-  },
-  "output": "numis_arch:animal_coin"
-}

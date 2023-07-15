@@ -20,7 +20,6 @@ public abstract class BrushableBlockEntityMixin {
     @Redirect(method = "brush",
             at = @At(value = "FIELD", target = "Lnet/minecraft/block/entity/BrushableBlockEntity;brushesCount:I", opcode = Opcodes.GETFIELD))
     private int injected(BrushableBlockEntity brushableBlockEntity, long worldTime, PlayerEntity player, Direction hitDirection) {
-        NumismaticArcheology.LOGGER.info(String.valueOf(brushesCount));
         if (player.getMainHandStack().isOf(Items.BRUSH)) {
             return brushesCount;
         } else if (player.getMainHandStack().isOf(NumisArchItems.DIAMOND_BRUSH)) {

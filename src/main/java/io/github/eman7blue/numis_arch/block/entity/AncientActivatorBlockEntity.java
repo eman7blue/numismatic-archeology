@@ -44,10 +44,7 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
     public BlockState struckByLightning(BlockState state, World world, LightningEntity entity) {
         if (state.getBlock() instanceof AncientActivatorBlock) {
             Optional<AncientActivatingRecipe> recipeMatch = world.getRecipeManager().getFirstMatch(AncientActivatingRecipe.Type.INSTANCE, this, world);
-            recipeMatch.ifPresent(ancientActivatingRecipe -> {
-                this.setStack(0, ancientActivatingRecipe.getOutput(DynamicRegistryManager.EMPTY));
-                NumismaticArcheology.LOGGER.info("AMONG US");
-            });
+            recipeMatch.ifPresent(ancientActivatingRecipe -> this.setStack(0, ancientActivatingRecipe.getOutput(DynamicRegistryManager.EMPTY)));
             return getCachedState().with(AncientActivatorBlock.STRUCK_BY_LIGHTNING, true);
         }
         return state;

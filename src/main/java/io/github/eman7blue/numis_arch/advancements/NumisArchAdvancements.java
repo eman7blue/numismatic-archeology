@@ -18,7 +18,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
 
     @Override
     public void accept(Consumer<Advancement> consumer) {
-        String [][] coinRequirements = {{"animal_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
+        String [][] coinRequirements = {{"rabbit_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
         String [][] destroyArcheologyRequirements = {{"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand", "break_suspicious_soul_sand", "break_suspicious_end_stone"}};
         Advancement rootAdvancement = Advancement.Builder.create()
                 .display(
@@ -44,7 +44,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
+                .criterion("rabbit_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
                 .criterion("bee_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.BEE_COIN))
                 .criterion("ender_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ENDER_COIN))
                 .criterion("parrot_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.PARROT_COIN))
@@ -67,7 +67,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                         false
                 )
                 .rewards(AdvancementRewards.Builder.experience(500).addRecipe(new Identifier("numis_arch:coin_collector_trophy")))
-                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
+                .criterion("rabbit_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
                 .criterion("bee_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.BEE_COIN))
                 .criterion("ender_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ENDER_COIN))
                 .criterion("parrot_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.PARROT_COIN))

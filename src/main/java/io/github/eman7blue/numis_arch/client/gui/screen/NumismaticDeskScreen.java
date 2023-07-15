@@ -29,7 +29,6 @@ public class NumismaticDeskScreen extends HandledScreen<NumismaticDeskScreenHand
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         if (!this.handler.getStacks().get(0).isEmpty()) {
             int gradeTime = this.handler.getGradeProgress();
-            NumismaticArcheology.LOGGER.info("norm macdonald   " + (gradeTime * 24 / 20 + 1));
             context.drawTexture(TEXTURE, x + 49, y + 35, 176, 0, (gradeTime * 24) / 20 + 1, 16);
         }
     }
