@@ -12,7 +12,6 @@ import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
 
 public class NumisArchItems {
     public static final Item ANCIENT_ACTIVATOR;
-    public static final Item ANIMAL_COIN;
     public static final Item BEE_COIN;
     public static final Item CHARGED_THUNDERSTONE;
     public static final Item COIN_COLLECTOR_TROPHY;
@@ -24,6 +23,7 @@ public class NumisArchItems {
     public static final Item ODD_GREEN_FIGURINE;
     public static final Item PARROT_COIN;
     public static final Item PIGLIN_COIN;
+    public static final Item RABBIT_COIN;
     public static final Item SNIFFER_COIN;
     public static final Item SUSPICIOUS_END_STONE;
     public static final Item SUSPICIOUS_RED_SAND;
@@ -35,7 +35,6 @@ public class NumisArchItems {
 
     public static void registerItems() {
         Registry.register(Registries.ITEM, id("ancient_activator"), ANCIENT_ACTIVATOR);
-        Registry.register(Registries.ITEM, id("animal_coin"), ANIMAL_COIN);
         Registry.register(Registries.ITEM, id("bee_coin"), BEE_COIN);
         Registry.register(Registries.ITEM, id("charged_thunderstone"), CHARGED_THUNDERSTONE);
         Registry.register(Registries.ITEM, id("coin_collector_trophy"), COIN_COLLECTOR_TROPHY);
@@ -47,6 +46,7 @@ public class NumisArchItems {
         Registry.register(Registries.ITEM, id("odd_green_figurine"), ODD_GREEN_FIGURINE);
         Registry.register(Registries.ITEM, id("parrot_coin"), PARROT_COIN);
         Registry.register(Registries.ITEM, id("piglin_coin"), PIGLIN_COIN);
+        Registry.register(Registries.ITEM, id("rabbit_coin"), RABBIT_COIN);
         Registry.register(Registries.ITEM, id("sniffer_coin"), SNIFFER_COIN);
         Registry.register(Registries.ITEM, id("suspicious_end_stone"), SUSPICIOUS_END_STONE);
         Registry.register(Registries.ITEM, id("suspicious_red_sand"), SUSPICIOUS_RED_SAND);
@@ -59,7 +59,6 @@ public class NumisArchItems {
 
     static {
         ANCIENT_ACTIVATOR = new BlockItem(NumisArchBlocks.ANCIENT_ACTIVATOR, new FabricItemSettings());
-        ANIMAL_COIN = new CoinItem(new FabricItemSettings());
         BEE_COIN =  new CoinItem(new FabricItemSettings());
         CHARGED_THUNDERSTONE = new ChargedThunderstoneItem(new FabricItemSettings());
         COIN_COLLECTOR_TROPHY = new BlockItem(NumisArchBlocks.COIN_COLLECTOR_TROPHY, new FabricItemSettings());
@@ -71,6 +70,7 @@ public class NumisArchItems {
         ODD_GREEN_FIGURINE = new Item(new FabricItemSettings().maxCount(1));
         PARROT_COIN = new CoinItem(new FabricItemSettings());
         PIGLIN_COIN = new CoinItem(new FabricItemSettings());
+        RABBIT_COIN = new CoinItem(new FabricItemSettings());
         SNIFFER_COIN = new CoinItem(new FabricItemSettings());
         SUSPICIOUS_END_STONE = new BlockItem(NumisArchBlocks.SUSPICIOUS_END_STONE, new FabricItemSettings());
         SUSPICIOUS_RED_SAND = new BlockItem(NumisArchBlocks.SUSPICIOUS_RED_SAND, new FabricItemSettings());

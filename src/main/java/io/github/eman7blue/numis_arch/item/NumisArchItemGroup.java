@@ -54,7 +54,7 @@ public class NumisArchItemGroup {
                     entries.add(NumisArchItems.THUNDERSTONE_BLOCK);
                     entries.add(NumisArchItems.ANCIENT_ACTIVATOR);
                     entries.add(NumisArchItems.NUMISMATIC_DESK);
-//                    entries.add(NumisArchItems.ANIMAL_COIN);
+//                    entries.add(NumisArchItems.RABBIT_COIN);
 //                    entries.add(NumisArchItems.BEE_COIN);
 //                    entries.add(NumisArchItems.ENDER_COIN);
 //                    entries.add(NumisArchItems.PARROT_COIN);
@@ -63,7 +63,7 @@ public class NumisArchItemGroup {
 //                    entries.add(NumisArchItems.TURTLE_COIN);
 //                    entries.add(NumisArchItems.VILLAGER_COIN);
                     entries.add(NumisArchItems.COIN_COLLECTOR_TROPHY);
-                    addAllCoinEntries(entries, NumisArchItems.ANIMAL_COIN);
+                    addAllCoinEntries(entries, NumisArchItems.RABBIT_COIN);
                     addAllCoinEntries(entries, NumisArchItems.BEE_COIN);
                     addAllCoinEntries(entries, NumisArchItems.ENDER_COIN);
                     addAllCoinEntries(entries, NumisArchItems.PARROT_COIN);
@@ -74,7 +74,7 @@ public class NumisArchItemGroup {
                 }).build();
         COIN_ITEM_GROUP = FabricItemGroup.builder().displayName(Text.translatable("itemGroup.numis_arch.numismaticArcheologyCoins")).icon(() -> new ItemStack(NumisArchItems.PIGLIN_COIN))
                 .entries((displayContext, entries) -> {
-                    addAllCoinEntries(entries, NumisArchItems.ANIMAL_COIN);
+                    addAllCoinEntries(entries, NumisArchItems.RABBIT_COIN);
                     addAllCoinEntries(entries, NumisArchItems.BEE_COIN);
                     addAllCoinEntries(entries, NumisArchItems.ENDER_COIN);
                     addAllCoinEntries(entries, NumisArchItems.PARROT_COIN);

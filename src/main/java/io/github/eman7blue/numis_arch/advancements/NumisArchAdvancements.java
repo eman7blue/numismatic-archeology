@@ -44,7 +44,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                         true,
                         false
                 )
-                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ANIMAL_COIN))
+                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
                 .criterion("bee_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.BEE_COIN))
                 .criterion("ender_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ENDER_COIN))
                 .criterion("parrot_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.PARROT_COIN))
@@ -67,7 +67,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                         false
                 )
                 .rewards(AdvancementRewards.Builder.experience(500).addRecipe(new Identifier("numis_arch:coin_collector_trophy")))
-                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ANIMAL_COIN))
+                .criterion("animal_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.RABBIT_COIN))
                 .criterion("bee_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.BEE_COIN))
                 .criterion("ender_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.ENDER_COIN))
                 .criterion("parrot_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.PARROT_COIN))

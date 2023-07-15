@@ -5,11 +5,11 @@ Numismatic Archeology is an exploration mod that adds eight collectable coins th
 ## The Coins
 
 There are eight coins which can be found in-game:
-* Animal Coin: Dug up in badlands buried hoards
 * Bee Coin: Dug up in desert buried hoards
 * Ender Coin: Dug up in end temples
 * Parrot Coin: Dug up in bamboo shrines
 * Piglin Coin: Dug up in housing bastions
+* Rabbit Coin: Dug up in badlands buried hoards
 * Sniffer Coin: Dug up in warm ocean ruins
 * Turtle Coin: Dug up in desert pyramids
 * Villager Coin: Dug up in villages
@@ -90,10 +90,9 @@ The Ancient Activator is crafted using thunderstone, and is used in ancient acti
 
 ## What's Next?
 
-* More interesting archeology finds
-* More odd figurines
-* Brush enchantments
-* Something in the badlands...
+* Taking a break, so nothing soon
+* Badlands structure
+* Integration with other mods
 
 ### Note for 1.19.4
 

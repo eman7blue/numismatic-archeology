@@ -4,7 +4,6 @@ import io.github.eman7blue.numis_arch.advancements.NumisArchAdvancements;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
 import io.github.eman7blue.numis_arch.loottable.NumisArchLootTables;
-import io.github.eman7blue.numis_arch.recipe.AncientActivatingRecipeSerializer;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -14,12 +13,9 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.advancement.Advancement;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
-import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
-import net.minecraft.data.server.recipe.RecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.loot.LootPool;
 import net.minecraft.loot.LootTable;
@@ -35,15 +31,12 @@ import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.*;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-import net.minecraft.world.poi.PointOfInterest;
 import net.minecraft.world.poi.PointOfInterestType;
 
-import javax.swing.text.html.HTML;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static io.github.eman7blue.numis_arch.NumismaticArcheology.MOD_ID;
 import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
 
 public class DataGeneration implements DataGeneratorEntrypoint {
@@ -154,7 +147,7 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                             .with(ItemEntry.builder(Items.GOLDEN_HOE).apply(EnchantRandomlyLootFunction.builder()))
                             .with(ItemEntry.builder(Items.EMERALD).weight(3))
                             .with(ItemEntry.builder(Items.STICK).weight(3))
-                            .with(ItemEntry.builder(NumisArchItems.ANIMAL_COIN).weight(5))
+                            .with(ItemEntry.builder(NumisArchItems.RABBIT_COIN).weight(5))
                     ));
             identifierBuilderBiConsumer.accept(NumisArchLootTables.BASTION_STABLE_ARCHEOLOGY, LootTable.builder().type(LootContextTypes.ARCHAEOLOGY)
                     .pool(LootPool.builder().rolls(ConstantLootNumberProvider.create(1.0F))
@@ -242,7 +235,7 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         @Override
         protected void configure(RegistryWrapper.WrapperLookup registries) {
             getOrCreateTagBuilder(TagKey.of(RegistryKeys.ITEM, id("coins")))
-                    .add(NumisArchItems.ANIMAL_COIN)
+                    .add(NumisArchItems.RABBIT_COIN)
                     .add(NumisArchItems.BEE_COIN)
                     .add(NumisArchItems.ENDER_COIN)
                     .add(NumisArchItems.PARROT_COIN)

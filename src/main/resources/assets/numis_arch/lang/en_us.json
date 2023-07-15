@@ -26,7 +26,6 @@
 
   "entity.minecraft.villager.archeologist":  "Archeologist",
 
-  "item.numis_arch.animal_coin": "Animal Coin",
   "item.numis_arch.bee_coin": "Bee Coin",
   "item.numis_arch.charged_thunderstone": "Charged Thunderstone",
   "item.numis_arch.diamond_brush": "Diamond Brush",
@@ -36,6 +35,7 @@
   "item.numis_arch.odd_green_figurine": "Odd Green Figurine",
   "item.numis_arch.parrot_coin": "Parrot Coin",
   "item.numis_arch.piglin_coin": "Piglin Coin",
+  "item.numis_arch.rabbit_coin": "Rabbit Coin",
   "item.numis_arch.sniffer_coin": "Sniffer Coin",
   "item.numis_arch.thunderstone": "Thunderstone",
   "item.numis_arch.turtle_coin": "Turtle Coin",
