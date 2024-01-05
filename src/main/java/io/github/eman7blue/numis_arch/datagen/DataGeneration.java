@@ -12,8 +12,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
 import net.fabricmc.fabric.api.datagen.v1.provider.SimpleFabricLootTableProvider;
 import net.minecraft.advancement.Advancement;
+import net.minecraft.advancement.AdvancementEntry;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.server.recipe.RecipeExporter;
+import net.minecraft.data.server.recipe.RecipeJsonBuilder;
 import net.minecraft.data.server.recipe.RecipeJsonProvider;
 import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
 import net.minecraft.item.Items;
@@ -55,8 +58,9 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         protected NumisArchAdvancementsProvider(FabricDataOutput dataGen) {
             super(dataGen);
         }
+
         @Override
-        public void generateAdvancement(Consumer<Advancement> consumer) {
+        public void generateAdvancement(Consumer<AdvancementEntry> consumer) {
             new NumisArchAdvancements().accept(consumer);
         }
     }
@@ -315,7 +319,7 @@ public class DataGeneration implements DataGeneratorEntrypoint {
         }
 
         @Override
-        public void generate(Consumer<RecipeJsonProvider> exporter) {
+        public void generate(RecipeExporter exporter) {
             ShapedRecipeJsonBuilder.create(RecipeCategory.TOOLS, NumisArchItems.DIAMOND_BRUSH, 1)
                     .criterion("has_diamond", InventoryChangedCriterion.Conditions.items(Items.DIAMOND))
                     .input('I', Items.STICK)
@@ -351,7 +355,6 @@ public class DataGeneration implements DataGeneratorEntrypoint {
                     .pattern("M")
                     .pattern("#")
                     .offerTo(exporter);
-
 
         }
     }

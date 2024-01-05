@@ -3,9 +3,7 @@ package io.github.eman7blue.numis_arch.advancements;
 import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.block.NumisArchBlocks;
 import io.github.eman7blue.numis_arch.item.NumisArchItems;
-import net.minecraft.advancement.Advancement;
-import net.minecraft.advancement.AdvancementFrame;
-import net.minecraft.advancement.AdvancementRewards;
+import net.minecraft.advancement.*;
 import net.minecraft.advancement.criterion.InventoryChangedCriterion;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Items;
@@ -14,13 +12,16 @@ import net.minecraft.util.Identifier;
 
 import java.util.function.Consumer;
 
-public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
+public class NumisArchAdvancements implements Consumer<Consumer<AdvancementEntry>>{
 
     @Override
-    public void accept(Consumer<Advancement> consumer) {
-        String [][] coinRequirements = {{"rabbit_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
-        String [][] destroyArcheologyRequirements = {{"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand", "break_suspicious_soul_sand", "break_suspicious_end_stone"}};
-        Advancement rootAdvancement = Advancement.Builder.create()
+    public void accept(Consumer<AdvancementEntry> consumer) {
+        String [][] coins = {{"rabbit_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
+        String [][] archeologyBlocks = {{"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand",
+                "break_suspicious_soul_sand", "break_suspicious_end_stone"}};
+        AdvancementRequirements coinRequirements = new AdvancementRequirements(coins);
+        AdvancementRequirements destroyArcheologyRequirements = new AdvancementRequirements(archeologyBlocks);
+        AdvancementEntry rootAdvancement = Advancement.Builder.create()
                 .display(
                         NumisArchItems.BEE_COIN,
                         Text.translatable("advancements.numis_arch.numismatic_archeology.title"),
@@ -33,7 +34,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                 )
                 .criterion("got_brush", InventoryChangedCriterion.Conditions.items(Items.BRUSH))
                 .build(consumer, "numis_arch" + "/root");
-        Advancement keepTheChangeAdvancement = Advancement.Builder.create().parent(rootAdvancement)
+        AdvancementEntry keepTheChangeAdvancement = Advancement.Builder.create().parent(rootAdvancement)
                 .display(
                         NumisArchItems.ENDER_COIN,
                         Text.translatable("advancements.numis_arch.keep_the_change.title"),
@@ -55,7 +56,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                 .requirements(coinRequirements)
                 .build(consumer, NumismaticArcheology.MOD_ID + "/keep_the_change");
 
-        Advancement collectCoinsAdvancement = Advancement.Builder.create().parent(keepTheChangeAdvancement)
+        AdvancementEntry collectCoinsAdvancement = Advancement.Builder.create().parent(keepTheChangeAdvancement)
                 .display(
                         NumisArchItems.COIN_COLLECTOR_TROPHY,
                         Text.translatable("advancements.numis_arch.collect_coins.title"),
@@ -77,7 +78,7 @@ public class NumisArchAdvancements implements Consumer<Consumer<Advancement>>{
                 .criterion("villager_coin", InventoryChangedCriterion.Conditions.items(NumisArchItems.VILLAGER_COIN))
                 .build(consumer, NumismaticArcheology.MOD_ID + "/collect_coins");
 
-        Advancement thatWasNinetyPrecentGravity = Advancement.Builder.create().parent(rootAdvancement)
+        AdvancementEntry thatWasNinetyPrecentGravity = Advancement.Builder.create().parent(rootAdvancement)
                 .display(
                         Items.IRON_PICKAXE,
                         Text.translatable("advancements.numis_arch.destroy_brushable_block.title"),

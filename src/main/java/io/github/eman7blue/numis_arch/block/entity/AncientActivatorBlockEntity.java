@@ -1,6 +1,5 @@
 package io.github.eman7blue.numis_arch.block.entity;
 
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.block.AncientActivatorBlock;
 import io.github.eman7blue.numis_arch.recipe.AncientActivatingRecipe;
 import net.minecraft.block.Block;
@@ -16,6 +15,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.DynamicRegistryManager;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
@@ -43,8 +43,8 @@ public class AncientActivatorBlockEntity extends BlockEntity implements SidedInv
 
     public BlockState struckByLightning(BlockState state, World world, LightningEntity entity) {
         if (state.getBlock() instanceof AncientActivatorBlock) {
-            Optional<AncientActivatingRecipe> recipeMatch = world.getRecipeManager().getFirstMatch(AncientActivatingRecipe.Type.INSTANCE, this, world);
-            recipeMatch.ifPresent(ancientActivatingRecipe -> this.setStack(0, ancientActivatingRecipe.getOutput(DynamicRegistryManager.EMPTY)));
+            Optional<RecipeEntry<AncientActivatingRecipe>> recipeMatch = world.getRecipeManager().getFirstMatch(AncientActivatingRecipe.Type.INSTANCE, this, world);
+            recipeMatch.ifPresent(ancientActivatingRecipe -> this.setStack(0, ancientActivatingRecipe.value().getResult(DynamicRegistryManager.EMPTY)));
             return getCachedState().with(AncientActivatorBlock.STRUCK_BY_LIGHTNING, true);
         }
         return state;

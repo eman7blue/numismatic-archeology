@@ -1,6 +1,7 @@
 package io.github.eman7blue.numis_arch.mixin;
 
 import io.github.eman7blue.numis_arch.NumismaticArcheology;
+import io.github.eman7blue.numis_arch.advancements.NumisArchCriteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -21,7 +22,7 @@ public abstract class BlockMixin {
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player, CallbackInfo ci) {
         if (world.getBlockEntity(pos) != null) {
             if(!world.isClient && world.getBlockEntity(pos) instanceof BrushableBlockEntity brushableBlockEntity) {
-                NumismaticArcheology.ARCHEOLOGY_BLOCK_DESTROYED.trigger((ServerPlayerEntity) player, state, ((BrushableBlockEntityAccessor) brushableBlockEntity).getLootTable());
+                NumisArchCriteria.ARCHEOLOGY_BLOCK_DESTROYED.trigger((ServerPlayerEntity) player, state, ((BrushableBlockEntityAccessor) brushableBlockEntity).getLootTable());
             }
         }
     }

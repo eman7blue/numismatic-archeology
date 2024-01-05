@@ -1,10 +1,5 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "input": {
-    "item": "numis_arch:bee_coin"
-  },
-  "output": "numis_arch:bee_coin",
-  "poor": 0,
-  "fine": 0,
-  "superb": 0
+  "ingredient": "numis_arch:bee_coin",
+  "result": "numis_arch:bee_coin"
 }

@@ -46,8 +46,8 @@ public class ChargedThunderstoneItem extends Item {
         DISPENSER_BEHAVIOR = new ItemDispenserBehavior(){
             @Override
             public ItemStack dispenseSilently(BlockPointer pointer, ItemStack stack) {
-                World world = pointer.getWorld();
-                BlockPos pos = pointer.getPos().offset(pointer.getBlockState().get(DispenserBlock.FACING), 1);
+                World world = pointer.world();
+                BlockPos pos = pointer.pos().offset(pointer.state().get(DispenserBlock.FACING), 1);
                 if (!world.isClient) {
                     LightningEntity lightningEntity = EntityType.LIGHTNING_BOLT.create(world);
                     lightningEntity.setCosmetic(false);
@@ -60,7 +60,7 @@ public class ChargedThunderstoneItem extends Item {
 
             @Override
             protected void playSound(BlockPointer pointer) {
-                pointer.getWorld().syncWorldEvent(WorldEvents.DISPENSER_DISPENSES, pointer.getPos(), 0);
+                pointer.world().syncWorldEvent(WorldEvents.DISPENSER_DISPENSES, pointer.pos(), 0);
             }
         };
     }

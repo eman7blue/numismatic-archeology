@@ -2,19 +2,22 @@ package io.github.eman7blue.numis_arch.advancements;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterionConditions;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.advancement.criterion.CuredZombieVillagerCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
-import net.minecraft.predicate.entity.AdvancementEntityPredicateSerializer;
-import net.minecraft.predicate.entity.EntityPredicate;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.registry.Registries;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.JsonHelper;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
 
@@ -25,17 +28,19 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
     public ArcheologyBlockDestroyedCriterion() {
     }
 
+    @Override
+    protected Conditions conditionsFromJson(JsonObject obj, Optional<LootContextPredicate> predicate, AdvancementEntityPredicateDeserializer predicateDeserializer) {
+        Identifier blockIdentifier = new Identifier(JsonHelper.getString(obj, "block"));
+        Block block = Registries.BLOCK.getOrEmpty(blockIdentifier).orElseThrow(() ->
+                new JsonSyntaxException("Unknown block type '" + blockIdentifier + "'"));
+        Identifier lootTableIdentifier = getLootTable(obj);
+        return new ArcheologyBlockDestroyedCriterion.Conditions(predicate, block, lootTableIdentifier);
+    }
+
     public Identifier getId() {
         return ID;
     }
 
-    public ArcheologyBlockDestroyedCriterion.Conditions conditionsFromJson(JsonObject jsonObject, LootContextPredicate predicate, AdvancementEntityPredicateDeserializer advancementEntityPredicateDeserializer) {
-        Identifier blockIdentifier = new Identifier(JsonHelper.getString(jsonObject, "block"));
-        Block block = Registries.BLOCK.getOrEmpty(blockIdentifier).orElseThrow(() ->
-                new JsonSyntaxException("Unknown block type '" + blockIdentifier + "'"));
-        Identifier lootTableIdentifier = getLootTable(jsonObject);
-        return new ArcheologyBlockDestroyedCriterion.Conditions(predicate, block, lootTableIdentifier);
-    }
 
     @Nullable
     private static Identifier getLootTable(JsonObject root) {
@@ -55,14 +60,14 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
         @Nullable
         private final Identifier lootTable;
 
-        public Conditions(LootContextPredicate predicate, Block block, @Nullable Identifier lootTable) {
-            super(ArcheologyBlockDestroyedCriterion.ID, predicate);
+        public Conditions(Optional<LootContextPredicate> predicate, Block block, @Nullable Identifier lootTable) {
+            super(predicate);
             this.block = block;
             this.lootTable = lootTable;
         }
 
-        public static ArcheologyBlockDestroyedCriterion.Conditions create(Block block, Identifier lootTable) {
-            return new ArcheologyBlockDestroyedCriterion.Conditions(LootContextPredicate.EMPTY, block, lootTable);
+        public static AdvancementCriterion<Conditions> create(Block block, Identifier lootTable) {
+            return NumisArchCriteria.ARCHEOLOGY_BLOCK_DESTROYED.create(new Conditions(Optional.empty(), block, lootTable));
         }
 
         public boolean test(BlockState state, Identifier loot_table) {
@@ -75,8 +80,8 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
             }
         }
 
-        public JsonObject toJson(AdvancementEntityPredicateSerializer predicateSerializer) {
-            JsonObject jsonObject = super.toJson(predicateSerializer);
+        public JsonObject toJson() {
+            JsonObject jsonObject = super.toJson();
             jsonObject.addProperty("block", Registries.BLOCK.getId(this.block).toString());
             if (this.lootTable != null) {
                 jsonObject.addProperty("loot_table", this.lootTable.toString());

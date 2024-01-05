@@ -1,7 +1,5 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "input": {
-    "item": "numis_arch:sniffer_coin"
-  },
-  "output": "numis_arch:sniffer_coin"
+  "ingredient": "numis_arch:sniffer_coin",
+  "result": "numis_arch:sniffer_coin"
 }

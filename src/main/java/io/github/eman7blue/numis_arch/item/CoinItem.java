@@ -1,6 +1,5 @@
 package io.github.eman7blue.numis_arch.item;
 
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

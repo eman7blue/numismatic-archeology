@@ -23,6 +23,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 public class NumismaticDeskBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, Inventory {
     protected DefaultedList<ItemStack> inventory = DefaultedList.ofSize(13, ItemStack.EMPTY);
     protected static final int maxGradeTime = 20;
@@ -130,14 +132,14 @@ public class NumismaticDeskBlockEntity extends BlockEntity implements NamedScree
         boolean dirty = false;
         boolean isNotEmpty = !blockEntity.inventory.get(0).isEmpty();
         if (isNotEmpty) {
-            NumismaticGradingRecipe recipe = isNotEmpty ? blockEntity.matchGetter.getFirstMatch(blockEntity, world).orElse(null) : null;
+            NumismaticGradingRecipe recipe = Objects.requireNonNull(blockEntity.matchGetter.getFirstMatch(blockEntity, world).orElse(null)).value();
             if (canGrade(recipe, blockEntity.inventory, world.getRegistryManager())) {
                 blockEntity.gradeTime++;
                 if (blockEntity.gradeTime == maxGradeTime) {
                     blockEntity.gradeTime = 0;
                     if (canGrade(recipe, blockEntity.inventory, world.getRegistryManager())) {
                         ItemStack itemStack = blockEntity.inventory.get(0);
-                        ItemStack itemStackResult = recipe.getOutput(world.getRegistryManager());
+                        ItemStack itemStackResult = recipe.getResult(world.getRegistryManager());
                         if (NumismaticDeskBlockEntity.addToOutput(world, itemStackResult, recipe, blockEntity)) {
                             itemStack.decrement(1);
                         }
@@ -156,7 +158,7 @@ public class NumismaticDeskBlockEntity extends BlockEntity implements NamedScree
         if (inventory.get(0).isEmpty() || recipe == null) {
             return false;
         }
-        ItemStack itemStack = recipe.getOutput(registryManager);
+        ItemStack itemStack = recipe.getResult(registryManager);
         if (itemStack.isEmpty()) {
             return false;
         }
