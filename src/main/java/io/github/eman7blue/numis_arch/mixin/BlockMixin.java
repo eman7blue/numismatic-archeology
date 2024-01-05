@@ -1,13 +1,10 @@
 package io.github.eman7blue.numis_arch.mixin;
 
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.advancements.NumisArchCriteria;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -5,8 +5,6 @@ import com.google.gson.JsonSyntaxException;
 import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterionConditions;
-import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.advancement.criterion.CuredZombieVillagerCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
