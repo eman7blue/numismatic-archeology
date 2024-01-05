@@ -1,7 +1,6 @@
 package io.github.eman7blue.numis_arch.client.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
 import io.github.eman7blue.numis_arch.screen.NumismaticDeskScreenHandler;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
