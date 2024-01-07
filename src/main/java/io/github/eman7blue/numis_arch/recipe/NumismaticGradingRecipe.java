@@ -93,9 +93,9 @@ public class NumismaticGradingRecipe implements Recipe<Inventory> {
                 Codecs.createStrictOptionalFieldCodec(Codec.STRING, "group", "").forGetter(recipe -> recipe.group),
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(recipe -> recipe.ingredient),
                 Registries.ITEM.getCodec().xmap(ItemStack::new, ItemStack::getItem).fieldOf("result").forGetter(recipe -> recipe.result),
-                Codec.INT.orElse(6).fieldOf("poor").forGetter(recipe -> recipe.poor),
-                Codec.INT.orElse(13).fieldOf("fine").forGetter(recipe -> recipe.fine),
-                Codec.INT.orElse(1).fieldOf("superb").forGetter(recipe -> recipe.superb))
+                Codec.INT.fieldOf("poor").orElse(6).forGetter(recipe -> recipe.poor),
+                Codec.INT.fieldOf("fine").orElse(13).forGetter(recipe -> recipe.fine),
+                Codec.INT.fieldOf("superb").orElse(1).forGetter(recipe -> recipe.superb))
                 .apply(instance, NumismaticGradingRecipe::new));
 
         public Serializer(NumismaticGradingRecipe.Serializer.RecipeFactory<NumismaticGradingRecipe> recipeFactory) {

@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:ancient_activating",
-  "ingredient": "numis_arch:thunderstone",
+  "ingredient": {
+    "item": "numis_arch:thunderstone"
+  },
   "result": "numis_arch:charged_thunderstone"
 }

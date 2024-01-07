@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:ancient_activating",
-  "ingredient": "numis_arch:odd_green_figurine",
+  "ingredient": {
+    "item": "numis_arch:odd_green_figurine"
+  },
   "result": "numis_arch:figurine_of_jumping"
 }

@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "ingredient": "numis_arch:piglin_coin",
+  "ingredient": {
+    "item": "numis_arch:piglin_coin"
+  },
   "result": "numis_arch:piglin_coin"
 }

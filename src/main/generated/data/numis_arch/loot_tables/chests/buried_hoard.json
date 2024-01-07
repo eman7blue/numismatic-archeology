@@ -85,7 +85,7 @@
             },
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_axe"
@@ -98,7 +98,7 @@
             },
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_shovel"
@@ -111,7 +111,7 @@
             },
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_pickaxe"
@@ -124,7 +124,7 @@
             },
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_sword"
@@ -137,7 +137,7 @@
             },
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_hoe"

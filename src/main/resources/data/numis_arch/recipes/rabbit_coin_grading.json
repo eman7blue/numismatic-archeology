@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "ingredient": "numis_arch:rabbit_coin",
+  "ingredient": {
+    "item": "numis_arch:rabbit_coin"
+  },
   "result": "numis_arch:rabbit_coin"
 }

@@ -9,7 +9,7 @@
           "functions": [
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:iron_shovel"
@@ -19,7 +19,7 @@
           "functions": [
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:brush"
@@ -29,7 +29,7 @@
           "functions": [
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:spyglass"
@@ -39,7 +39,7 @@
           "functions": [
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:compass"

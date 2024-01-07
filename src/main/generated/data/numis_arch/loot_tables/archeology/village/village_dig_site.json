@@ -9,7 +9,7 @@
           "functions": [
             {
               "function": "minecraft:limit_count",
-              "limit": 1.0
+              "limit": 1
             }
           ],
           "name": "minecraft:brush"

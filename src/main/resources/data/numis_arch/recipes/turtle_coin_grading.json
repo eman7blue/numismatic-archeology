@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "ingredient": "numis_arch:turtle_coin",
+  "ingredient": {
+    "item": "numis_arch:turtle_coin"
+  },
   "result": "numis_arch:turtle_coin"
 }

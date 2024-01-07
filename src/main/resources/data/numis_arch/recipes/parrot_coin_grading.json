@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "ingredient": "numis_arch:parrot_coin",
+  "ingredient": {
+    "item": "numis_arch:parrot_coin"
+  },
   "result": "numis_arch:parrot_coin"
 }

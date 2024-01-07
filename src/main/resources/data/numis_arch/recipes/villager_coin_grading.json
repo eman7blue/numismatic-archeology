@@ -1,6 +1,8 @@
 {
   "type": "numis_arch:numismatic_grading",
-  "ingredient": "numis_arch:villager_coin",
+  "ingredient": {
+    "item": "numis_arch:villager_coin"
+  },
   "result": "numis_arch:villager_coin",
   "poor": 40,
   "fine": 59,

@@ -1,5 +1,7 @@
 {
   "type": "numis_arch:ancient_activating",
-  "ingredient": "minecraft:stone",
+  "ingredient": {
+    "item": "minecraft:stone"
+  },
   "result": "numis_arch:thunderstone_block"
 }
