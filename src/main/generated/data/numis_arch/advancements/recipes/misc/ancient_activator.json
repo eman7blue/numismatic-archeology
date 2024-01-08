@@ -30,6 +30,5 @@
     "recipes": [
       "numis_arch:ancient_activator"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

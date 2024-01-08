@@ -33,17 +33,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.numis_arch.destroy_brushable_block.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "minecraft:iron_pickaxe",
       "nbt": "{Damage:0}"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.numis_arch.destroy_brushable_block.title"
     }

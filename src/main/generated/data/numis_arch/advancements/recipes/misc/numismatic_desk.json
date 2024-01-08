@@ -30,6 +30,5 @@
     "recipes": [
       "numis_arch:numismatic_desk"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }

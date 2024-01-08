@@ -1,5 +1,6 @@
 package io.github.eman7blue.numis_arch.block;
 
+import com.mojang.serialization.MapCodec;
 import io.github.eman7blue.numis_arch.block.entity.NumisArchBlockEntityTypes;
 import io.github.eman7blue.numis_arch.block.entity.NumismaticDeskBlockEntity;
 import net.minecraft.block.*;
@@ -21,11 +22,17 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 public class NumismaticDeskBlock extends BlockWithEntity {
+    public static final MapCodec<NumismaticDeskBlock> CODEC = createCodec(NumismaticDeskBlock::new);
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
     public NumismaticDeskBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
+    }
+
+    @Override
+    public MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {

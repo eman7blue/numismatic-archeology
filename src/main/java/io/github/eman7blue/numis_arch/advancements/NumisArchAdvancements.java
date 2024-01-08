@@ -10,17 +10,18 @@ import net.minecraft.item.Items;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 public class NumisArchAdvancements implements Consumer<Consumer<AdvancementEntry>>{
 
     @Override
     public void accept(Consumer<AdvancementEntry> consumer) {
-        String [][] coins = {{"rabbit_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"}};
-        String [][] archeologyBlocks = {{"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand",
-                "break_suspicious_soul_sand", "break_suspicious_end_stone"}};
-        AdvancementRequirements coinRequirements = new AdvancementRequirements(coins);
-        AdvancementRequirements destroyArcheologyRequirements = new AdvancementRequirements(archeologyBlocks);
+        String [] coins = {"rabbit_coin", "bee_coin", "ender_coin", "parrot_coin", "piglin_coin", "sniffer_coin", "turtle_coin", "villager_coin"};
+        String [] archeologyBlocks = {"break_suspicious_sand", "break_suspicious_gravel", "break_suspicious_red_sand",
+                "break_suspicious_soul_sand", "break_suspicious_end_stone"};
+        AdvancementRequirements coinRequirements = new AdvancementRequirements(List.of(List.of(coins)));
+        AdvancementRequirements destroyArcheologyRequirements = new AdvancementRequirements(List.of(List.of(archeologyBlocks)));
         AdvancementEntry rootAdvancement = Advancement.Builder.create()
                 .display(
                         NumisArchItems.BEE_COIN,
@@ -89,11 +90,11 @@ public class NumisArchAdvancements implements Consumer<Consumer<AdvancementEntry
                         true,
                         false
                 )
-                .criterion("break_suspicious_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_SAND, null))
-                .criterion("break_suspicious_gravel", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_GRAVEL, null))
-                .criterion("break_suspicious_red_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_RED_SAND, null))
-                .criterion("break_suspicious_soul_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_SOUL_SAND, null))
-                .criterion("break_suspicious_end_stone", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_END_STONE, null))
+                .criterion("break_suspicious_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_SAND))
+                .criterion("break_suspicious_gravel", ArcheologyBlockDestroyedCriterion.Conditions.create(Blocks.SUSPICIOUS_GRAVEL))
+                .criterion("break_suspicious_red_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_RED_SAND))
+                .criterion("break_suspicious_soul_sand", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_SOUL_SAND))
+                .criterion("break_suspicious_end_stone", ArcheologyBlockDestroyedCriterion.Conditions.create(NumisArchBlocks.SUSPICIOUS_END_STONE))
                 .requirements(destroyArcheologyRequirements)
                 .build(consumer, NumismaticArcheology.MOD_ID + "/destroy_brushable_block");
 

@@ -1,16 +1,15 @@
 package io.github.eman7blue.numis_arch.block;
 
-import io.github.eman7blue.numis_arch.NumismaticArcheology;
+import com.mojang.serialization.MapCodec;
 import io.github.eman7blue.numis_arch.block.entity.AncientActivatorBlockEntity;
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRenderType;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.LightningEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundCategory;
@@ -18,24 +17,28 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
-import net.minecraft.state.property.Properties;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
 import org.jetbrains.annotations.Nullable;
 
 public class AncientActivatorBlock extends BlockWithEntity {
+    public static final MapCodec<AncientActivatorBlock> CODEC = createCodec(AncientActivatorBlock::new);
     public static final BooleanProperty STRUCK_BY_LIGHTNING;
 
     public AncientActivatorBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(STRUCK_BY_LIGHTNING, false));
+    }
+
+    @Override
+    public MapCodec<? extends BlockWithEntity> getCodec() {
+        return CODEC;
     }
 
     @Override

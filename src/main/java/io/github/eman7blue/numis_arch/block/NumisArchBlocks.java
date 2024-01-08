@@ -5,10 +5,8 @@ import net.minecraft.block.*;
 import net.minecraft.block.enums.Instrument;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import net.minecraft.resource.featuretoggle.FeatureFlags;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 import static io.github.eman7blue.numis_arch.NumismaticArcheology.id;
@@ -50,30 +48,33 @@ public class NumisArchBlocks {
                 .sounds(BlockSoundGroup.WOOD)
                 .burnable()
                 .instrument(Instrument.BASS));
-        SUSPICIOUS_RED_SAND = new BrushableBlock(Blocks.RED_SAND, FabricBlockSettings.create()
+        SUSPICIOUS_RED_SAND = new BrushableBlock(Blocks.RED_SAND,
+                SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE,
+                FabricBlockSettings.create()
                 .mapColor(MapColor.ORANGE)
                 .strength(0.25f)
                 .sounds(BlockSoundGroup.SUSPICIOUS_SAND)
-                .instrument(Instrument.SNARE),
-                    SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
-        SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(Blocks.SOUL_SAND, FabricBlockSettings.create()
+                .instrument(Instrument.SNARE));
+        SUSPICIOUS_SOUL_SAND = new SuspiciousSoulSandBlock(Blocks.SOUL_SAND,
+                SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE,
+                FabricBlockSettings.create()
                 .mapColor(MapColor.BROWN)
                 .strength(0.5f)
                 .velocityMultiplier(0.4f)
                 .instrument(Instrument.COW_BELL)
-                .sounds(BlockSoundGroup.SUSPICIOUS_SAND),
-                    SoundEvents.ITEM_BRUSH_BRUSHING_SAND, SoundEvents.ITEM_BRUSH_BRUSHING_SAND_COMPLETE);
-        SUSPICIOUS_END_STONE = new SuspiciousEndStoneBlock(Blocks.END_STONE, FabricBlockSettings.create()
+                .sounds(BlockSoundGroup.SUSPICIOUS_SAND));
+        SUSPICIOUS_END_STONE = new SuspiciousEndStoneBlock(Blocks.END_STONE,
+                SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE,
+                FabricBlockSettings.create()
                 .mapColor(MapColor.PALE_YELLOW)
                 .strength(3.0f, 9.0f)
                 .sounds(BlockSoundGroup.STONE)
-                .instrument(Instrument.BASEDRUM),
-                    SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL, SoundEvents.ITEM_BRUSH_BRUSHING_GRAVEL_COMPLETE);
-        THUNDERSTONE_BLOCK = new ExperienceDroppingBlock(FabricBlockSettings.create()
+                .instrument(Instrument.BASEDRUM));
+        THUNDERSTONE_BLOCK = new ExperienceDroppingBlock( UniformIntProvider.create(1, 3), FabricBlockSettings.create()
                 .mapColor(MapColor.YELLOW)
                 .strength(2.5F, 3.5F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.STONE)
-                .instrument(Instrument.BASEDRUM), UniformIntProvider.create(1, 3));
+                .instrument(Instrument.BASEDRUM));
     }
 }

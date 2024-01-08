@@ -1,19 +1,17 @@
 package io.github.eman7blue.numis_arch.advancements;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonSyntaxException;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.advancement.AdvancementCriterion;
 import net.minecraft.advancement.criterion.AbstractCriterion;
-import net.minecraft.advancement.criterion.AbstractCriterionConditions;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.predicate.entity.AdvancementEntityPredicateDeserializer;
 import net.minecraft.predicate.entity.LootContextPredicate;
 import net.minecraft.registry.Registries;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.JsonHelper;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.util.dynamic.Codecs;
 
 import java.util.Optional;
 
@@ -26,65 +24,36 @@ public class ArcheologyBlockDestroyedCriterion extends AbstractCriterion<Archeol
     public ArcheologyBlockDestroyedCriterion() {
     }
 
-    @Override
-    protected Conditions conditionsFromJson(JsonObject obj, Optional<LootContextPredicate> predicate, AdvancementEntityPredicateDeserializer predicateDeserializer) {
-        Identifier blockIdentifier = new Identifier(JsonHelper.getString(obj, "block"));
-        Block block = Registries.BLOCK.getOrEmpty(blockIdentifier).orElseThrow(() ->
-                new JsonSyntaxException("Unknown block type '" + blockIdentifier + "'"));
-        Identifier lootTableIdentifier = getLootTable(obj);
-        return new ArcheologyBlockDestroyedCriterion.Conditions(predicate, block, lootTableIdentifier);
-    }
-
     public Identifier getId() {
         return ID;
     }
 
 
-    @Nullable
-    private static Identifier getLootTable(JsonObject root) {
-        if (root.has("loot_table")) {
-            return new Identifier(JsonHelper.getString(root, "loot_table"));
-        } else {
-            return null;
-        }
-    }
-
     public void trigger(ServerPlayerEntity player, BlockState state, Identifier loot_table) {
         this.trigger(player, (conditions) -> conditions.test(state, loot_table));
     }
 
-    public static class Conditions extends AbstractCriterionConditions {
-        private final Block block;
-        @Nullable
-        private final Identifier lootTable;
-
-        public Conditions(Optional<LootContextPredicate> predicate, Block block, @Nullable Identifier lootTable) {
-            super(predicate);
-            this.block = block;
-            this.lootTable = lootTable;
-        }
-
-        public static AdvancementCriterion<Conditions> create(Block block, Identifier lootTable) {
-            return NumisArchCriteria.ARCHEOLOGY_BLOCK_DESTROYED.create(new Conditions(Optional.empty(), block, lootTable));
-        }
-
-        public boolean test(BlockState state, Identifier loot_table) {
-            if (this.block != null && !state.isOf(this.block)) {
-                return false;
-            } else if (this.lootTable != null) {
-                return this.lootTable.equals(loot_table);
-            } else {
-                return loot_table != null;
-            }
-        }
-
-        public JsonObject toJson() {
-            JsonObject jsonObject = super.toJson();
-            jsonObject.addProperty("block", Registries.BLOCK.getId(this.block).toString());
-            if (this.lootTable != null) {
-                jsonObject.addProperty("loot_table", this.lootTable.toString());
-            }
-            return jsonObject;
-        }
+    @Override
+    public Codec<Conditions> getConditionsCodec() {
+        return Conditions.CODEC;
     }
+
+    public record Conditions(Optional<RegistryEntry<Block>> block) implements AbstractCriterion.Conditions {
+
+            public static final Codec<Conditions> CODEC = RecordCodecBuilder.create((instance) ->
+                    instance.group(Codecs.createStrictOptionalFieldCodec(Registries.BLOCK.createEntryCodec(), "block").forGetter(Conditions::block)).apply(instance, Conditions::new));
+
+        public static AdvancementCriterion<Conditions> create(Block block) {
+                return NumisArchCriteria.ARCHEOLOGY_BLOCK_DESTROYED.create(new Conditions(Optional.of(block.getRegistryEntry())));
+            }
+
+            public boolean test(BlockState state, Identifier loot_table) {
+                return this.block.isPresent() && state.isOf(this.block.get()) && loot_table != null;
+            }
+
+            @Override
+            public Optional<LootContextPredicate> player() {
+                return Optional.empty();
+            }
+        }
 }

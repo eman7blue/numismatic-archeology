@@ -1,5 +1,6 @@
 package io.github.eman7blue.numis_arch.block;
 
+import com.mojang.serialization.MapCodec;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.fluid.FluidState;
@@ -17,6 +18,7 @@ import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
 public class CoinCollectorTrophyBlock extends HorizontalFacingBlock implements Waterloggable{
+    public static final MapCodec<CoinCollectorTrophyBlock> CODEC = createCodec(CoinCollectorTrophyBlock::new);
     public static final BooleanProperty WATERLOGGED;
     public static final DirectionProperty FACING;
 
@@ -32,6 +34,11 @@ public class CoinCollectorTrophyBlock extends HorizontalFacingBlock implements W
     public CoinCollectorTrophyBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH).with(WATERLOGGED, false));
+    }
+
+    @Override
+    public MapCodec<? extends HorizontalFacingBlock> getCodec() {
+        return CODEC;
     }
 
     @Override

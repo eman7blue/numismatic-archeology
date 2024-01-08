@@ -99,16 +99,13 @@
     }
   },
   "display": {
-    "announce_to_chat": true,
     "description": {
       "translate": "advancements.numis_arch.collect_coins.description"
     },
     "frame": "challenge",
-    "hidden": false,
     "icon": {
       "item": "numis_arch:coin_collector_trophy"
     },
-    "show_toast": true,
     "title": {
       "translate": "advancements.numis_arch.collect_coins.title"
     }

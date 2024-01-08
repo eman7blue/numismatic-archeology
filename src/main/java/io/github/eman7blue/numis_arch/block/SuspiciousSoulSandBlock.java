@@ -1,6 +1,9 @@
 package io.github.eman7blue.numis_arch.block;
 
-import net.minecraft.block.*;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.BrushableBlock;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BrushableBlockEntity;
 import net.minecraft.entity.FallingBlockEntity;
 import net.minecraft.entity.ai.pathing.NavigationType;
@@ -15,9 +18,8 @@ import net.minecraft.world.World;
 
 public class SuspiciousSoulSandBlock extends BrushableBlock {
 
-
-    public SuspiciousSoulSandBlock(Block block, Settings settings, SoundEvent soundEvent, SoundEvent soundEvent2) {
-        super(block, settings, soundEvent, soundEvent2);
+    public SuspiciousSoulSandBlock(Block block, SoundEvent soundEvent, SoundEvent soundEvent2, Settings settings) {
+        super(block, soundEvent, soundEvent2, settings);
     }
 
     @Override

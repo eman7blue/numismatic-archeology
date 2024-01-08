@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 public class SuspiciousEndStoneBlock extends BrushableBlock {
 
 
-    public SuspiciousEndStoneBlock(Block block, Settings settings, SoundEvent soundEvent, SoundEvent soundEvent2) {
-        super(block, settings, soundEvent, soundEvent2);
+    public SuspiciousEndStoneBlock(Block block, SoundEvent soundEvent, SoundEvent soundEvent2, Settings settings) {
+        super(block, soundEvent, soundEvent2, settings);
     }
 
     @Override

@@ -19,8 +19,6 @@
     "description": {
       "translate": "advancements.numis_arch.numismatic_archeology.description"
     },
-    "frame": "task",
-    "hidden": false,
     "icon": {
       "item": "numis_arch:bee_coin"
     },

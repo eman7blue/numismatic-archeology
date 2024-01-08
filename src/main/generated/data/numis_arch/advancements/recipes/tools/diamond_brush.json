@@ -30,6 +30,5 @@
     "recipes": [
       "numis_arch:diamond_brush"
     ]
-  },
-  "sends_telemetry_event": false
+  }
 }
